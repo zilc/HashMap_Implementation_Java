@@ -27,11 +27,13 @@ public class ManualTest {
                 = new ParsableHashMap<>(String::new, Car::new, HashType.DIVISION);
 
         // Reikšmių masyvas
-        Car[] cars = {c1, c2, c3, c4, c5,c7};
+        Car[] cars = {c1, c2, c3, c4, c5,c7,c6};
         for (Car c : cars) {
             carsMap.put(carsIds[id++], c);
         }
         Ks.ounn(carsMap);
+        Ks.oun("numb of empties");
+        Ks.oun(((HashMap)carsMap).numberOfEmpties());
         for(int i = 0; i < cars.length; i++){
             Ks.oun("Contains value" + cars[i]);
        //     Ks.oun(((HashMap)carsMap).containsValue(cars[i]));

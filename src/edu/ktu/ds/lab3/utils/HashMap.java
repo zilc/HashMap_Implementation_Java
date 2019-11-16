@@ -122,6 +122,15 @@ public class HashMap<K, V> implements EvaluableMap<K, V> {
      }
 
     /**
+     * Grąžina maišos lentelės masyvo tuščių elementų skaičių.
+     * @return
+     */
+     public int numberOfEmpties(){
+         return table.length - chainsCounter;
+     }
+
+
+    /**
      * Patikrinama ar atvaizdis yra tuščias.
      *
      */

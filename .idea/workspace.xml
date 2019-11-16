@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d68a1a71-9310-48e1-96af-a08bd2f2a776" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/demo/ManualTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/demo/ManualTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/utils/HashMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/utils/HashMap.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -118,6 +118,11 @@
           <url>file://$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui/MainWindow.java</url>
           <line>329</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/edu/ktu/ds/lab3/utils/HashMap.java</url>
+          <line>128</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
