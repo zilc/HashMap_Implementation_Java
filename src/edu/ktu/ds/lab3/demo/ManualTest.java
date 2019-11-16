@@ -19,7 +19,7 @@ public class ManualTest {
         Car c5 = new Car.Builder().buildRandom();
         Car c6 = new Car("Honda   Civic  2007  36400 8500.3");
         Car c7 = new Car("Renault Laguna 2001 115900 7500");
-
+        Car rplc = new Car("Mitsubishi Lancer 2011 11500 75000");
         // Raktų masyvas
         String[] carsIds = {"TA156", "TA102", "TA178", "TA171", "TA105", "TA106", "TA107", "TA108"};
         int id = 0;
@@ -31,6 +31,10 @@ public class ManualTest {
         for (Car c : cars) {
             carsMap.put(carsIds[id++], c);
         }
+        Ks.ounn(carsMap);
+        Ks.oun("Replace" + c2 + "with" + rplc);
+        ((HashMap)carsMap).replace(carsIds[0], c1,rplc);
+
         Ks.ounn(carsMap);
         Ks.oun("numb of empties");
         Ks.oun(((HashMap)carsMap).numberOfEmpties());

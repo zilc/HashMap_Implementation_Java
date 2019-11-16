@@ -130,6 +130,7 @@ public class HashMap<K, V> implements EvaluableMap<K, V> {
      }
 
 
+
     /**
      * Patikrinama ar atvaizdis yra tuščias.
      *
@@ -281,6 +282,51 @@ public class HashMap<K, V> implements EvaluableMap<K, V> {
         chainsCounter = newMap.chainsCounter;
         rehashesCounter++;
     }
+
+    /**
+     * Pakeičia atvaizdyje egzistuojantį raktą ir jį atitinkančią reikšmę naują reikšme ir grąžina true.
+     * Jei raktas neegzistuoja atvaizdyje, ar jo reikšmė neatitinka metodo argumente nurodytos senosios reikšmės,
+     * pakeitimas nevykdomas ir gražinama false.
+     * @param key
+     * @param oldValue
+     * @param newValue
+     * @return
+     */
+    public boolean replace(K key, V oldValue, V newValue){
+        if(key == null || oldValue == null || newValue == null){
+            return false;
+        }
+
+        V value = get(key);
+        if(value == null || value != oldValue){
+            return false;
+
+        }
+
+        Node<K,V> replNode;
+        for (int i = 0; i< table.length; i++){
+            Node<K,V> node = table[i];
+            if(node != null){
+                Node<K,V> current = getInChain(key,node);
+                if(current != null){
+                    replNode = current;
+                    replNode.value = newValue;
+                    break;
+                }
+            }
+        }
+
+
+
+
+        return true;
+
+
+
+
+
+    }
+
 
     /**
      * Maišos funkcijos skaičiavimas: pagal rakto maišos kodą apskaičiuojamas
