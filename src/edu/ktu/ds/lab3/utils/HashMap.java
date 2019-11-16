@@ -99,6 +99,28 @@ public class HashMap<K, V> implements EvaluableMap<K, V> {
         return false;
     }
 
+
+    /**
+     * Jei argumente nurodytas raktas neturi reikšmės šiame atvaizdyje, tada argumente nurodyta raktas -
+     * reikšmė pora įrašoma ir grąžinama null.
+     * Kitu atveju grąžinama atvaizdyje jau egzistuojanti raktą atitinkanti reikšmė.
+     * @param key nurodytas raktas
+     * @param value nurodyta reikšmė
+     * @return
+     */
+     public V putIfAbsent(K key, V value){
+
+         V val = get(key);
+
+         if(val != null){
+             put(key,value);
+             return null;
+         }
+
+         return val;
+
+     }
+
     /**
      * Patikrinama ar atvaizdis yra tuščias.
      *
