@@ -80,6 +80,26 @@ public class HashMap<K, V> implements EvaluableMap<K, V> {
 
 
     /**
+     * grąžina true, jei atvaizdyje egzistuoja vienas ar daugiau raktų metodo argumente nurodytai reikšmei.
+     * @param value ieškoma reikšmė
+     * @return true jei egzistuoja
+     */
+    public boolean containsValue(Object value){
+
+        for(int i = 0; i < table.length; i++){
+            Node node = table[i];
+            if(node != null){
+                for(Node nodeChain = node; nodeChain != null; nodeChain = nodeChain.next){
+                    if(nodeChain.value.equals(value)){
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
      * Patikrinama ar atvaizdis yra tuščias.
      *
      */
