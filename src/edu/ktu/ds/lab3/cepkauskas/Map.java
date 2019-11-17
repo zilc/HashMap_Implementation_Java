@@ -1,48 +1,39 @@
 package edu.ktu.ds.lab3.cepkauskas;
 
-
-public class HashMapOa<V, K> implements Map<K,V> {
-
-    private int size;
-    private V v;
+/**
+ * Interfeisu aprašomas Atvaizdžio ADT.
+ *
+ * @param <K> Atvaizdžio poros raktas
+ * @param <V> Atvaizdžio poros reikšmė
+ */
+public interface Map<K, V> {
 
     /**
      * Patikrinama ar atvaizdis yra tuščias.
      *
      * @return true, jei tuščias
      */
-    @Override
-    public boolean isEmpty(){
-        return size == 0;
-    }
-
-
+    boolean isEmpty();
 
     /**
      * Grąžinamas atvaizdyje esančių porų kiekis.
      *
      * @return Grąžinamas atvaizdyje esančių porų kiekis.
      */
-    public int size(){
-        return size;
-    }
+    int size();
 
     /**
      * Išvalomas atvaizdis.
      *
      */
-    public void clear(){
-
-    }
+    void clear();
 
     /**
      * Grąžinamas porų masyvas.
      *
      * @return Grąžinamas porų masyvas.
      */
-    public  String[][] toArray(){
-        return new String[5][5];
-    }
+    String[][] toArray();
 
     /**
      * Atvaizdis papildomas nauja pora.
@@ -51,9 +42,7 @@ public class HashMapOa<V, K> implements Map<K,V> {
      * @param value reikšmė.
      * @return Grąžinama atvaizdžio poros reikšmė.
      */
-    public V put(K key, V value){
-        return  value;
-    }
+    V put(K key, V value);
 
     /**
      * Grąžinama atvaizdžio poros reikšmė.
@@ -61,9 +50,7 @@ public class HashMapOa<V, K> implements Map<K,V> {
      * @param key raktas.
      * @return Grąžinama atvaizdžio poros reikšmė.
      */
-   public V get(K key){
-        return  v;
-    }
+    V get(K key);
 
     /**
      * Iš atvaizdžio pašalinama pora.
@@ -71,9 +58,7 @@ public class HashMapOa<V, K> implements Map<K,V> {
      * @param key raktas.
      * @return Grąžinama pašalinta atvaizdžio poros reikšmė.
      */
-    public V remove(K key){
-        return  v;
-    }
+    V remove(K key);
 
     /**
      * Patikrinama ar atvaizdyje egzistuoja pora su raktu key.
@@ -82,34 +67,5 @@ public class HashMapOa<V, K> implements Map<K,V> {
      * @return true, jei atvaizdyje egzistuoja pora su raktu key, kitu atveju -
      * false
      */
-    public boolean contains(K key){
-        return true;
-    }
-
-    protected class Entry<K,V>{
-
-        protected K key;
-        protected V value;
-
-        protected Entry(){
-
-
-        }
-
-        protected Entry(K key, V value){
-            this.key = key;
-            this.value = value;
-
-
-        }
-
-        @Override
-        public String toString(){
-            return key + "=" + value;
-        }
-
-
-    }
-
-
+    boolean contains(K key);
 }
