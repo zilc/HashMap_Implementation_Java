@@ -31,7 +31,11 @@ public class ManualTest {
         for (Car c : cars) {
             carsMap.put(carsIds[id++], c);
         }
+
+
         Ks.ounn(carsMap);
+        Ks.oun("average chain size" +((HashMap)carsMap).averageChainSize());
+
         Ks.oun("Replace" + c2 + "with" + rplc);
         ((HashMap)carsMap).replace(carsIds[0], c1,rplc);
 

@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="d68a1a71-9310-48e1-96af-a08bd2f2a776" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/demo/ManualTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/demo/ManualTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/utils/HashMap$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/utils/HashMap$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/utils/HashMap$Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/utils/HashMap$Node.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/utils/HashMap.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/utils/HashMap.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/demo/ManualTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/demo/ManualTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/utils/HashMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/utils/HashMap.java" afterDir="false" />
     </list>
@@ -25,6 +29,7 @@
   <component name="ProjectId" id="1TZiuMjrj0T7hULCqEovy0XLANu" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">

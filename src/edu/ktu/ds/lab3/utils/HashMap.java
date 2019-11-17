@@ -327,6 +327,35 @@ public class HashMap<K, V> implements EvaluableMap<K, V> {
 
     }
 
+    /**
+     * Gražina vidutinį grandinėlės ilgį.
+     */
+  public int averageChainSize(){
+      int totalSize = 0;
+      for(int i = 0; i < table.length; i++){
+          Node<K,V> node = table[i];
+          if(node != null){
+              totalSize += chainSize(table[i]);
+          }
+
+
+
+      }
+
+      return totalSize / chainsCounter;
+
+    }
+
+
+    public int chainSize(Node<K,V> node){
+      if(node == null){return -1;}
+      int size = 0;
+        for(Node nodeChain = node; nodeChain != null; nodeChain = nodeChain.next){
+            size++;
+        }
+        return size;
+
+    }
 
     /**
      * Maišos funkcijos skaičiavimas: pagal rakto maišos kodą apskaičiuojamas
