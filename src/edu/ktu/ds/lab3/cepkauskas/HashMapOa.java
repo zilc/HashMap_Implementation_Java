@@ -108,6 +108,10 @@ public class HashMapOa<V, K> implements Map<K,V> {
             return key + "=" + value;
         }
 
+        public void Test(){
+            
+        }
+
 
     }
 
