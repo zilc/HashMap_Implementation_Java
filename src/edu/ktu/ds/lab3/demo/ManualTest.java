@@ -86,10 +86,16 @@ public class ManualTest {
         Ks.oun("average chain size" +((HashMap)carsMap2).averageChainSize());
 
 
-        Ks.oun("Replace" + c2 + "with" + rplc);
-        ((HashMap)carsMap).replace(carsIds[0], c1,rplc);
-
         Ks.ounn(carsMap);
+        Ks.oun("Replace: " + ((HashMap)carsMap).get(carsIds[0])+ "with: " + rplc);
+        ((HashMap)carsMap).replace(carsIds[0], ((HashMap)carsMap).get(carsIds[0]),rplc);
+        Ks.ounn(carsMap);
+        Ks.ounn("XXXXXXXXXXXXX");
+        Ks.ounn(carsMap2);
+        Ks.oun("Replace: " + ((HashMap)carsMap2).get(carsIds2[18])+ "with: " + rplc);
+         ((HashMap)carsMap2).replace(carsIds2[18],((HashMap)carsMap2).get(carsIds2[18]),rplc);
+
+        Ks.ounn(carsMap2);
         Ks.oun("numb of empties");
         Ks.oun(((HashMap)carsMap).numberOfEmpties());
         for(int i = 0; i < cars.length; i++){
