@@ -331,7 +331,11 @@ public class HashMap<K, V> implements EvaluableMap<K, V> {
      * Gražina vidutinį grandinėlės ilgį.
      */
   public int averageChainSize(){
-      int totalSize = 0;
+
+      if(chainsCounter == 0){
+          throw new IllegalArgumentException("Error: chain count is 0");
+      }
+      double totalSize = 0;
       for(int i = 0; i < table.length; i++){
           Node<K,V> node = table[i];
           if(node != null){
@@ -342,7 +346,8 @@ public class HashMap<K, V> implements EvaluableMap<K, V> {
 
       }
 
-      return totalSize / chainsCounter;
+
+      return (int) Math.round(totalSize / chainsCounter);
 
     }
 
