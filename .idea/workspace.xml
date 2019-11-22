@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d68a1a71-9310-48e1-96af-a08bd2f2a776" name="Default Changelist" comment="" />
+    <list default="true" id="d68a1a71-9310-48e1-96af-a08bd2f2a776" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/cepkauskas/ManualTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/cepkauskas/HashMapOa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/cepkauskas/HashMapOa.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +48,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ManualTest">
+  <component name="RunManager" selected="Application.ManualTest (1)">
     <configuration name="DemoExecution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.ktu.ds.lab3.demo.DemoExecution" />
       <module name="Lab3_MaisosLenteles_Intellij" />
@@ -99,8 +103,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ManualTest" />
         <item itemvalue="Application.ManualTest (1)" />
+        <item itemvalue="Application.ManualTest" />
         <item itemvalue="Application.DemoExecution" />
         <item itemvalue="Application.SimpleBenchmark" />
       </list>

@@ -204,7 +204,9 @@ public class HashMapOa<K, V> implements Map<K,V> {
      * @return Grąžinama atvaizdžio poros reikšmė.
      */
    public V get(K key){
-        return  v;
+        int hash = hash(key, ht);
+        return table[hash].value;
+
     }
 
     /**
@@ -214,7 +216,8 @@ public class HashMapOa<K, V> implements Map<K,V> {
      * @return Grąžinama pašalinta atvaizdžio poros reikšmė.
      */
     public V remove(K key){
-        return  v;
+
+        return  null;
     }
 
     /**
