@@ -39,7 +39,7 @@ public class CapacitorGenerator {
 
         public Capacitor takeCapacitor() throws ValidationException {
             if (lastIndex < startIndex) {
-                throw new ValidationException(String.valueOf(lastIndex - startIndex), 4);
+                throw new ValidationException(String.valueOf(lastIndex - startIndex), "ERORR");
             }
             // Vieną kartą Automobilis imamas iš masyvo pradžios, kitą kartą - iš galo.
             isStart = !isStart;
@@ -51,13 +51,13 @@ public class CapacitorGenerator {
                 throw new IllegalArgumentException("Kondensatorių nėra (null)");
             }
             if (amountToReturn <= 0) {
-                throw new ValidationException(String.valueOf(amountToReturn), 1);
+                throw new ValidationException(String.valueOf(amountToReturn),  "ERORR");
             }
             if (capacitors.length < amountToReturn) {
-                throw new ValidationException(capacitors.length + " >= " + amountToReturn, 2);
+                throw new ValidationException(capacitors.length + " >= " + amountToReturn,  "ERORR" );
             }
             if ((shuffleCoef < 0) || (shuffleCoef > 1)) {
-                throw new ValidationException(String.valueOf(shuffleCoef), 3);
+                throw new ValidationException(String.valueOf(shuffleCoef),  "ERORR" );
             }
 
             int amountToLeave = capacitors.length - amountToReturn;
