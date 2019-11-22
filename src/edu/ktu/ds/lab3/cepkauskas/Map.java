@@ -33,7 +33,7 @@ public interface Map<K, V> {
      *
      * @return Grąžinamas porų masyvas.
      */
-    String[][] toArray();
+    String[] toArray();
 
     /**
      * Atvaizdis papildomas nauja pora.
