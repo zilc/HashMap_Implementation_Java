@@ -21,6 +21,8 @@ public class ManualTest {
         Car c6 = new Car("Honda   Civic  2007  36400 8500.3");
         Car c7 = new Car("Renault Laguna 2001 115900 7500");
         Car rplc = new Car("Mitsubishi Lancer 2011 11500 75000");
+        Car c80 = new Car("Toyota Corolla 2001 20000 8500.1");
+        Car c81 = new Car("Toyota Corolla 2001 20000 8500.1");
 
         Car c8 = new Car.Builder().buildRandom();
         Car c9 = new Car.Builder().buildRandom();
@@ -45,7 +47,7 @@ public class ManualTest {
         String[] carsIds2 = {"TA156", "TA156", "TA178", "TA178", "TA105", "TA105", "TA107", "TA107","TA111", "TA111","TA333","TA333","TA100","TA100","TA198", "TA198", "TA202", "TA202", "TA203", "TA203", "TA202", "TA207", "TA207"} ;
         int id = 0;
 
-        HashMap<String, Car> carsHashMap = new HashMap<>( HashType.DIVISION);
+        HashMapOa<String, Car> carsHashMap = new HashMapOa<>( HashType.DIVISION);
         ParsableMap<String, Car> carsMap
                 = new ParsableHashMap<>(String::new, Car::new, HashType.DIVISION);
 
@@ -65,6 +67,30 @@ public class ManualTest {
         Ks.oun("get" + carsIds[4]);
         Ks.oun(carsHashMap.get(carsIds[4]));
         Ks.oun("------------------------------");
+        Ks.oun("remove");
+        Ks.oun(carsHashMap.remove(carsIds[4]));
+        Ks.oun(carsHashMap);
+
+        Ks.oun("put");
+        carsHashMap.put("TA179999",c80);
+        carsHashMap.put("TA189999",c81);
+        carsHashMap.put("TA103",c2);
+        carsHashMap.put("TA133",c11);
+        carsHashMap.put("TA153",c14);
+        carsHashMap.put("TA253",c12);
+        carsHashMap.put("TA137",c2);
+        carsHashMap.put("TA100",c18);
+        carsHashMap.put("TA117",c7);
+        carsHashMap.put("TA107",c5);
+        carsHashMap.put("TA123",c6);
+
+
+
+
+        Ks.oun(carsHashMap);
+        Ks.oun("get");
+        Ks.oun(carsHashMap.get("TA171"));
+
 
 
 
@@ -76,6 +102,9 @@ public class ManualTest {
         }
         Ks.oun(carsMap);
         Ks.oun("get");
+
+
+
 
         id = 0;
 

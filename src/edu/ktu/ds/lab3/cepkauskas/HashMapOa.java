@@ -11,6 +11,7 @@ public class HashMapOa<K, V> implements Map<K,V> {
     public static final float DEFAULT_LOAD_FACTOR = 0.75f;
     public static final HashType DEFAULT_HASH_TYPE = HashType.DIVISION;
 
+
     protected Entry<K,V>[] table;
     // Lentelėje esančių raktas-reikšmė porų kiekis
     protected int size = 0;
@@ -21,9 +22,7 @@ public class HashMapOa<K, V> implements Map<K,V> {
     // Maišos metodas
     protected HashType ht;
 
-    public HashMapOa() {
-        this(DEFAULT_HASH_TYPE);
-    }
+
 
     public HashMapOa(HashType ht) {
         this(DEFAULT_INITIAL_CAPACITY, ht);
@@ -51,6 +50,17 @@ public class HashMapOa<K, V> implements Map<K,V> {
         this.ht = ht;
     }
 
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder();
+        for (Entry<K, V> node : table) {
+            if (node != null) {
+                result.append(node.toString()).append(System.lineSeparator());
+
+            }
+        }
+        return result.toString();
+    }
 
 
 
@@ -112,7 +122,7 @@ public class HashMapOa<K, V> implements Map<K,V> {
         int index = hash(key, ht);
         int index0 = index;
         for (int i = 0; i < table.length; i++ ){
-            if (table[index] == null || table[index].key.equals(key)){
+            if (table[index] == null || table[index].key.equals(key) || table[index].key.equals("DELETED") ){
                 return index;
             }
             index = (index0 + i + 1) % table.length;
@@ -163,12 +173,13 @@ public class HashMapOa<K, V> implements Map<K,V> {
             throw new NullPointerException();
         }
         int index = findPosition(key);
+
         if (index == -1){
             rehash();
             put(key, value);
             return value;
         }
-        if (table[index] == null){
+        if (table[index] == null || table[index].key.equals("DELETED")){
             table[index] = new Entry(key, value);
             size++;
             if (size > table.length * loadFactor){
@@ -189,7 +200,10 @@ public class HashMapOa<K, V> implements Map<K,V> {
     private void rehash() {
         HashMapOa<K, V> newMap = new HashMapOa<>(table.length * 2, loadFactor, ht);
         for (int i = 0; i < table.length; i++) {
-            newMap.put(table[i].key, table[i].value);
+            if(table[i] != null) {
+                newMap.put(table[i].key, table[i].value);
+            }
+
         }
         table = newMap.table;
 
@@ -204,8 +218,10 @@ public class HashMapOa<K, V> implements Map<K,V> {
      * @return Grąžinama atvaizdžio poros reikšmė.
      */
    public V get(K key){
-        int hash = hash(key, ht);
-        return table[hash].value;
+        int position = findPosition(key);
+        return table[position].value;
+
+
 
     }
 
@@ -216,8 +232,17 @@ public class HashMapOa<K, V> implements Map<K,V> {
      * @return Grąžinama pašalinta atvaizdžio poros reikšmė.
      */
     public V remove(K key){
+        int position = findPosition(key);
+        if(position < 0 ){
+            return null;
+        }
+        V value = table[position].value;
+        table[position].key = (K) "DELETED";
+        table[position].value = (V) "DELETED";
+        size--;
+        return value;
 
-        return  null;
+
     }
 
     /**
@@ -255,6 +280,25 @@ public class HashMapOa<K, V> implements Map<K,V> {
 
 
 
+
+    }
+
+    protected class EntryT<K,V> extends Entry<K,V>{
+
+        protected int hashCode;
+
+        protected EntryT(){
+
+
+        }
+
+        protected EntryT(K key, V value, int hash){
+            super();
+            hashCode = hash;
+
+
+
+        }
 
     }
 
