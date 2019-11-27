@@ -119,7 +119,8 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
                     MESSAGES.getString("button2"),
                     MESSAGES.getString("button3"),
                     MESSAGES.getString("button4"),
-                        MESSAGES.getString("button5")
+                        MESSAGES.getString("button5"),
+                        MESSAGES.getString("button6")
                 }, 1, 20);
         paneButtons.getButtons().forEach((btn) -> btn.setOnAction(this));
         IntStream.of(1, 3).forEach(p -> paneButtons.getButtons().get(p).setDisable(true));
@@ -306,8 +307,15 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
         else if (source.equals(paneButtons.getButtons().get(4))) {
             mapPutIfAbsent();
         }
+        else if (source.equals(paneButtons.getButtons().get(5))) {
+            mapNumOfEmpties();
+        }
     }
 
+    private void mapNumOfEmpties(){
+        KsGui.oun(taEvents, ((HashMap)map).numberOfEmpties(), "Number of empty elements" );
+
+    }
     private void mapGeneration(String filePath) {
         // Išjungiami 2 ir 4 mygtukai
         IntStream.of(1, 3).forEach(p -> paneButtons.getButtons().get(p).setDisable(true));
