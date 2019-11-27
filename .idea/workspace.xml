@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d68a1a71-9310-48e1-96af-a08bd2f2a776" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/cepkauskas/ParsableMapOa.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui/MainWindowCapacitor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui/messagesCapacitor.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/gui/ValidationException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/gui/ValidationException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/cepkauskas/CapacitorGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/cepkauskas/CapacitorGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui/ValidationException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui/ValidationException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/cepkauskas/ParsableMapOa.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/demo/SimpleBenchmark.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/demo/SimpleBenchmark.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/cepkauskas/Capacitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/cepkauskas/Capacitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/cepkauskas/ParsableMapOa.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/demo/SimpleBenchmark.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/demo/SimpleBenchmark.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui/MainWindow.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,20 +32,21 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/edu/ktu/ds/lab3/cepkauskas" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="reference.idesettings.debugger.capture" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Downloads\Lab3_MaisosLenteles_Intellij\src\edu\ktu\ds\lab3\gui" />
       <recent name="D:\Downloads\Lab3_MaisosLenteles_Intellij\src\edu\ktu\ds\lab3\cepkauskas" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="edu.ktu.ds.lab3.utils" />
       <recent name="edu.ktu.ds.lab3.gui" />
       <recent name="edu.ktu.ds.lab3.cepkauskas" />
+      <recent name="edu.ktu.ds.lab3.utils" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Downloads\Lab3_MaisosLenteles_Intellij\src\edu\ktu\ds\lab3\cepkauskas" />
     </key>
   </component>
@@ -57,7 +62,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.ManualTest (1)">
+  <component name="RunManager" selected="Application.DemoExecution">
     <configuration name="DemoExecution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.ktu.ds.lab3.demo.DemoExecution" />
       <module name="Lab3_MaisosLenteles_Intellij" />
@@ -112,10 +117,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ManualTest (1)" />
-        <item itemvalue="Application.ManualTest" />
         <item itemvalue="Application.DemoExecution" />
+        <item itemvalue="Application.ManualTest (1)" />
         <item itemvalue="Application.SimpleBenchmark" />
+        <item itemvalue="Application.ManualTest" />
       </list>
     </recent_temporary>
   </component>

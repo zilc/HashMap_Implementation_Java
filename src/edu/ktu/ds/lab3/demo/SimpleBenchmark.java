@@ -80,7 +80,7 @@ public class SimpleBenchmark {
             chainsSizes.add("   kiekis      " + BENCHMARK_NAMES[0] + "   " + BENCHMARK_NAMES[1]);
             for (int k : COUNTS) {
                 String[] words;
-                try (Stream<String> stream1 = Files.lines(Paths.get("/data/zodynas.txt"))) {
+                try (Stream<String> stream1 = Files.lines(Paths.get("D:\\Downloads\\Lab3_MaisosLenteles_Intellij\\data\\zodynas.txt"))) {
 
                     words = stream1
                             .toArray(String[]::new);

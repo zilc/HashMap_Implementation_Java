@@ -1,7 +1,7 @@
 package edu.ktu.ds.lab3.gui;
 
-import edu.ktu.ds.lab3.cepkauskas.Capacitor;
-import edu.ktu.ds.lab3.cepkauskas.CapacitorGenerator;
+import edu.ktu.ds.lab3.demo.Car;
+import edu.ktu.ds.lab3.demo.CarsGenerator;
 import edu.ktu.ds.lab3.demo.SimpleBenchmark;
 import edu.ktu.ds.lab3.utils.HashType;
 import edu.ktu.ds.lab3.utils.ParsableHashMap;
@@ -59,7 +59,7 @@ import java.util.stream.Stream;
  *
  * @author darius.matulis@ktu.lt
  */
-public class MainWindow extends BorderPane implements EventHandler<ActionEvent> {
+public class MainWindowCapacitor extends BorderPane implements EventHandler<ActionEvent> {
 
     private static final ResourceBundle MESSAGES = ResourceBundle.getBundle("edu.ktu.ds.lab3.gui.messages");
     private static final int TF_WIDTH = 200;
@@ -80,13 +80,13 @@ public class MainWindow extends BorderPane implements EventHandler<ActionEvent> 
     private MainWindowMenu mainWindowMenu;
     private final Stage stage;
 
-    private ParsableMap<String, Capacitor> map;
+    private ParsableMap<String, Car> map;
     private int sizeOfInitialSubSet, sizeOfGenSet, colWidth, initialCapacity;
     private float loadFactor;
     private HashType ht = HashType.DIVISION;
-    private final CapacitorGenerator capacitorGenerator = new CapacitorGenerator();
+    private final CarsGenerator carsGenerator = new CarsGenerator();
 
-    public MainWindow(Stage stage) {
+    public MainWindowCapacitor(Stage stage) {
         this.stage = stage;
         initComponents();
     }
@@ -310,10 +310,10 @@ public class MainWindow extends BorderPane implements EventHandler<ActionEvent> 
         createMap();
         // Jei failas nenurodytas - generuojami automobiliai ir talpinami atvaizdyje
         if (filePath == null) {
-            Capacitor[] carsArray = capacitorGenerator.generateShuffle(sizeOfGenSet, sizeOfInitialSubSet);
-            for (Capacitor c : carsArray) {
+            Car[] carsArray = carsGenerator.generateShuffleCarsAndIds(sizeOfGenSet, sizeOfInitialSubSet);
+            for (Car c : carsArray) {
                 map.put(
-                        capacitorGenerator.getCarId(), //raktas
+                        carsGenerator.getCarId(), //raktas
                         c);
             }
             KsGui.ounArgs(taEvents, MESSAGES.getString("mapPuts"), map.size());
@@ -338,9 +338,9 @@ public class MainWindow extends BorderPane implements EventHandler<ActionEvent> 
     }
 
     private void mapPut() {
-        Car car = capacitorGenerator.getCar();
+        Car car = carsGenerator.getCar();
         map.put(
-                capacitorGenerator.getCarId(), // Raktas
+                carsGenerator.getCarId(), // Raktas
                 car);
         table.formTable(map.getMaxChainSize() * 2 + 1, colWidth);
         String[][] modelList = map.getModelList(paneParam1.getTfOfTable().get(5).getText());
@@ -509,7 +509,7 @@ public class MainWindow extends BorderPane implements EventHandler<ActionEvent> 
     public static void createAndShowGui(Stage stage) {
         Platform.runLater(() -> {
             Locale.setDefault(Locale.US); // Suvienodiname skaičių formatus
-            MainWindow window = new MainWindow(stage);
+            MainWindowCapacitor window = new MainWindowCapacitor(stage);
             stage.setScene(new Scene(window, 1300, 700));
             //stage.setMaximized(true);
             stage.setTitle(MESSAGES.getString("title"));

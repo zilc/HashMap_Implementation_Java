@@ -15,10 +15,10 @@ public class Capacitor implements Parsable<Capacitor> {
     final static private double minPrice = 0.01;
     final static private double maxPrice = 100.0;
 
-    private double capacity;
-    private double temperature;
+    private int capacity;
+    private int temperature;
     private String type;
-    private double voltage;
+    private int voltage;
     private double price;
 
 
@@ -32,7 +32,7 @@ public class Capacitor implements Parsable<Capacitor> {
 
     }
 
-    public Capacitor(double cap, double temp, String type, double volt,
+    public Capacitor(int cap, int temp, String type, int volt,
                      double price){
         this.capacity = cap;
         this.temperature = temp;
@@ -67,13 +67,24 @@ public class Capacitor implements Parsable<Capacitor> {
     }
 
     @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 29 * hash + Objects.hashCode(this.type);
+        hash = 29 * hash + this.capacity;
+        hash = 29 * hash + this.temperature;
+        hash = 29 * hash + this.voltage;
+        hash = 29 * hash + (int) (Double.doubleToLongBits(this.price) ^ (Double.doubleToLongBits(this.price) >>> 32));
+        return hash;
+    }
+
+    @Override
     public final void parse(String data){
         try {
             Scanner ed = new Scanner(data);
-            capacity =  ed.nextDouble();
-            temperature = ed.nextDouble();
+            capacity =  ed.nextInt();
+            temperature = ed.nextInt();
             type = ed.next();
-            voltage = ed.nextDouble();
+            voltage = ed.nextInt();
             setPrice(ed.nextDouble());
         } catch (InputMismatchException e) {
             Ks.ern("Blogas duomenų formatas apie kondensatorių -> " + data);
@@ -94,11 +105,11 @@ public class Capacitor implements Parsable<Capacitor> {
         return this.price;
     }
 
-    public double getCapacity() {
+    public int getCapacity() {
         return this.capacity;
     }
 
-    public double getTemperature() {
+    public int getTemperature() {
         return this.temperature;
     }
 
@@ -137,7 +148,7 @@ public class Capacitor implements Parsable<Capacitor> {
 
 
     public final static Comparator<Capacitor> byCapacityAndPrice
-            = Comparator.comparingDouble((Capacitor cap) -> (Double) cap.getCapacity()).thenComparingDouble(cap -> (Double) cap.getPrice());
+            = Comparator.comparingDouble((Capacitor cap) ->  cap.getCapacity()).thenComparingDouble(cap ->  cap.getPrice());
 
     public final static Comparator byPrice = (Comparator)
             (Object obj1, Object obj2) -> {
@@ -202,11 +213,11 @@ public class Capacitor implements Parsable<Capacitor> {
 
 
 
-        private double capacity;
-        private double temperature;
+        private int capacity;
+        private int temperature;
         private String type;
-        private double voltage;
-        private double price;
+        private int voltage;
+        private int price;
 
         public Capacitor build() {
             return new Capacitor(this);
@@ -215,7 +226,7 @@ public class Capacitor implements Parsable<Capacitor> {
         public Capacitor buildRandom() {
             int ma = RANDOM.nextInt(MODELS.length);
 
-            return new Capacitor(2 + RANDOM.nextDouble(), 6 + RANDOM.nextInt(80),MODELS[ma],
+            return new Capacitor(2 + RANDOM.nextInt(), 6 + RANDOM.nextInt(80),MODELS[ma],
                     3 + RANDOM.nextInt(20),
                     0.5 + RANDOM.nextDouble());
 
@@ -226,7 +237,7 @@ public class Capacitor implements Parsable<Capacitor> {
             return this;
         }
 
-        public Builder temperature(double temp) {
+        public Builder temperature(int temp) {
             this.temperature = temp;
             return this;
         }
@@ -241,7 +252,7 @@ public class Capacitor implements Parsable<Capacitor> {
             return this;
         }
 
-        public Builder price(double price) {
+        public Builder price(int price) {
             this.price = price;
             return this;
         }
