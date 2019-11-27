@@ -310,10 +310,10 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
         createMap();
         // Jei failas nenurodytas - generuojami automobiliai ir talpinami atvaizdyje
         if (filePath == null) {
-            Capacitor[] carsArray = capacitorGenerator.generateShuffle(sizeOfGenSet, sizeOfInitialSubSet);
+            Capacitor[] carsArray = capacitorGenerator.generateShuffleCapacitorsAndIds(sizeOfGenSet, sizeOfInitialSubSet);
             for (Capacitor c : carsArray) {
                 map.put(
-                        capacitorGenerator(), //raktas
+                        capacitorGenerator.getCapacitorId(), //raktas
                         c);
             }
             KsGui.ounArgs(taEvents, MESSAGES.getString("mapPuts"), map.size());
@@ -338,9 +338,9 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
     }
 
     private void mapPut() {
-        Car car = capacitorGenerator.getCar();
+        Capacitor car = capacitorGenerator.getCapacitor();
         map.put(
-                capacitorGenerator.getCarId(), // Raktas
+                capacitorGenerator.getCapacitorId(), // Raktas
                 car);
         table.formTable(map.getMaxChainSize() * 2 + 1, colWidth);
         String[][] modelList = map.getModelList(paneParam1.getTfOfTable().get(5).getText());
@@ -413,7 +413,7 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
     private void createMap() {
         switch (cmbCollisionTypes.getSelectionModel().getSelectedIndex()) {
             case 0:
-                map = new ParsableHashMap<>(String::new, Car::new, initialCapacity, loadFactor, ht);
+                map = new ParsableHashMap<>(String::new, Capacitor::new, initialCapacity, loadFactor, ht);
                 break;
             // ...
             // Programuojant kitus kolizijų sprendimo metodus reikia papildyti switch sakinį
