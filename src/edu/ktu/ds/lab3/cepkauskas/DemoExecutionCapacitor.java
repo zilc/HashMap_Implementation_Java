@@ -19,7 +19,7 @@ public class DemoExecutionCapacitor extends Application {
     @Override
     public void start(Stage primaryStage) {
         Locale.setDefault(Locale.US); // Suvienodiname skaičių formatus 
-        ManualTest.executeTest();
+        //ManualTest.executeTest();
         setUserAgentStylesheet(STYLESHEET_MODENA);    //Nauja FX išvaizda
         //setUserAgentStylesheet(STYLESHEET_CASPIAN); //Sena FX išvaizda
         MainWindowCapacitor.createAndShowGui(primaryStage);

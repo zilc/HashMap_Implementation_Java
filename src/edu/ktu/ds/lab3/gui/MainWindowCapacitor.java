@@ -3,6 +3,7 @@ package edu.ktu.ds.lab3.gui;
 import edu.ktu.ds.lab3.cepkauskas.Capacitor;
 import edu.ktu.ds.lab3.cepkauskas.CapacitorGenerator;
 import edu.ktu.ds.lab3.demo.SimpleBenchmark;
+import edu.ktu.ds.lab3.utils.HashMap;
 import edu.ktu.ds.lab3.utils.HashType;
 import edu.ktu.ds.lab3.utils.ParsableHashMap;
 import edu.ktu.ds.lab3.utils.ParsableMap;
@@ -26,6 +27,7 @@ import javafx.stage.StageStyle;
 import java.io.File;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Semaphore;
@@ -61,7 +63,7 @@ import java.util.stream.Stream;
  */
 public class MainWindowCapacitor extends BorderPane implements EventHandler<ActionEvent> {
 
-    private static final ResourceBundle MESSAGES = ResourceBundle.getBundle("edu.ktu.ds.lab3.gui.messages");
+    private static final ResourceBundle MESSAGES = ResourceBundle.getBundle("edu.ktu.ds.lab3.gui.messagesCapacitor");
     private static final int TF_WIDTH = 200;
     private static final int TF_WIDTH_SMALLER = 80;
     private static final double SPACING = 5.0;
@@ -81,6 +83,7 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
     private final Stage stage;
 
     private ParsableMap<String, Capacitor> map;
+    Capacitor[] capacitors;
     private int sizeOfInitialSubSet, sizeOfGenSet, colWidth, initialCapacity;
     private float loadFactor;
     private HashType ht = HashType.DIVISION;
@@ -297,7 +300,10 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
         } else if (source.equals(paneButtons.getButtons().get(2))) {
             mapEfficiency();
         } else if (source.equals(paneButtons.getButtons().get(3))) {
-            KsGui.ounerr(taEvents, MESSAGES.getString("notImplemented"));
+            mapContainsValue();
+        }
+        else if (source.equals(paneButtons.getButtons().get(4))) {
+
         }
     }
 
@@ -310,8 +316,8 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
         createMap();
         // Jei failas nenurodytas - generuojami automobiliai ir talpinami atvaizdyje
         if (filePath == null) {
-            Capacitor[] carsArray = capacitorGenerator.generateShuffleCapacitorsAndIds(sizeOfGenSet, sizeOfInitialSubSet);
-            for (Capacitor c : carsArray) {
+             capacitors = capacitorGenerator.generateShuffleCapacitorsAndIds(sizeOfGenSet, sizeOfInitialSubSet);
+            for (Capacitor c : capacitors) {
                 map.put(
                         capacitorGenerator.getCapacitorId(), //raktas
                         c);
@@ -335,6 +341,14 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
         updateHashtableParameters(false);
         // Įjungiami 2 ir 4 mygtukai
         IntStream.of(1, 3).forEach(p -> paneButtons.getButtons().get(p).setDisable(false));
+    }
+
+    private void mapContainsValue(){
+        Capacitor capacitor = capacitors[new Random().nextInt(capacitors.length)];
+        Capacitor capacitor1 = new Capacitor.Builder().buildRandom();
+
+        KsGui.oun(taEvents, capacitor, "ContainsValue()" + ((HashMap)map).containsValue(capacitor));
+        KsGui.oun(taEvents, capacitor1, "ContainsValue()" + ((HashMap)map).containsValue(capacitor1));
     }
 
     private void mapPut() {
