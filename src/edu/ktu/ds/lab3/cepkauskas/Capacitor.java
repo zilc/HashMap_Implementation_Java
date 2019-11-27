@@ -78,6 +78,36 @@ public class Capacitor implements Parsable<Capacitor> {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Capacitor other = (Capacitor) obj;
+        if (this.type != other.type) {
+            return false;
+        }
+        if (this.capacity != other.capacity) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.price) != Double.doubleToLongBits(other.price)) {
+            return false;
+        }
+        if (!Objects.equals(this.voltage, other.voltage)) {
+            return false;
+        }
+        if (!Objects.equals(this.temperature, other.temperature)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
     public final void parse(String data){
         try {
             Scanner ed = new Scanner(data);

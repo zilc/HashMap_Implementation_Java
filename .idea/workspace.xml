@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d68a1a71-9310-48e1-96af-a08bd2f2a776" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui/MainWindowCapacitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui/messagesCapacitor.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/cepkauskas/ParsableMapOa.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/demo/SimpleBenchmark.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/demo/SimpleBenchmark.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/cepkauskas/Capacitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/cepkauskas/Capacitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/cepkauskas/ParsableMapOa.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/demo/SimpleBenchmark.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/demo/SimpleBenchmark.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui/MainWindow.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
