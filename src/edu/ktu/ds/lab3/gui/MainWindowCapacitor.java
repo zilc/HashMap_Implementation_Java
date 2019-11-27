@@ -315,17 +315,20 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
         readMapParameters();
         // Sukuriamas tuščias atvaizdis priklausomai nuo kolizijų tipo
         createMap();
-        // Jei failas nenurodytas - generuojami automobiliai ir talpinami atvaizdyje
+        // Jei failas nenurodytas - generuojami elementai ir talpinami atvaizdyje
         if (filePath == null) {
              capacitors = capacitorGenerator.generateShuffleCapacitorsAndIds(sizeOfGenSet, sizeOfInitialSubSet);
-             ids = new String[sizeOfGenSet];
+             ids = new String[capacitors.length];
+             int i = 0;
             for (Capacitor c : capacitors) {
-                ///String id = capacitorGenerator.getCapacitorId();
+                String id = capacitorGenerator.getCapacitorId();
+                ids[i++] = id;
 
                 map.put(
-                        capacitorGenerator.getCapacitorId(), //raktas
+                        id,
+                        //capacitorGenerator.getCapacitorId(), //raktas
                         c);
-                //Arrays.asList(ids).add(id);
+
             }
             KsGui.ounArgs(taEvents, MESSAGES.getString("mapPuts"), map.size());
         } else { // Jei failas nurodytas skaitoma iš failo
@@ -359,11 +362,24 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
     private void mapPutIfAbsent(){
 
         Capacitor capacitor = capacitors[new Random().nextInt(capacitors.length)];
+        KsGui.oun(taEvents, capacitor, "Put capacitor1");
         Capacitor capacitor1 = new Capacitor.Builder().buildRandom();
 
 
-        KsGui.oun(taEvents, capacitor, "PutIfAbsent()" + ((HashMap)map).putIfAbsent(ids[new Random().nextInt(ids.length)], capacitor));
-        KsGui.oun(taEvents, capacitor1, "PutIfAbsent()" + ((HashMap)map).putIfAbsent(ids[new Random().nextInt(ids.length)], capacitor1));
+
+        KsGui.oun(taEvents, "PutIfAbsent()" + ((HashMap)map).putIfAbsent(ids[new Random().nextInt(ids.length)], capacitor));
+
+        KsGui.oun(taEvents, "--------------------------------------------------");
+        KsGui.oun(taEvents, capacitor1, "Put capacitor2");
+        KsGui.oun(taEvents, "PutIfAbsent()" + ((HashMap)map).putIfAbsent("ID" + new Random().nextInt(2000) , capacitor1));
+
+
+        table.formTable(map.getMaxChainSize() * 2 + 1, colWidth);
+        String[][] modelList = map.getModelList(paneParam1.getTfOfTable().get(5).getText());
+        table.getItems().clear();
+        table.setItems(FXCollections.observableArrayList(modelList));
+        // Atnaujinamai maišos lentelės parametrai (geltona lentelė)
+        updateHashtableParameters(false);
     }
 
     private void mapPut() {
