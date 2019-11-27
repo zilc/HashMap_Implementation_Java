@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d68a1a71-9310-48e1-96af-a08bd2f2a776" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/gui/MainWindowCapacitor$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/gui/MainWindowCapacitor$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/gui/MainWindowCapacitor$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/gui/MainWindowCapacitor$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/gui/MainWindowCapacitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/gui/MainWindowCapacitor.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui/MainWindowCapacitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui/MainWindowCapacitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui/messagesCapacitor.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui/messagesCapacitor.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/utils/HashMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/utils/HashMap.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -181,8 +179,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui/MainWindowCapacitor.java</url>
-          <line>302</line>
-          <option name="timeStamp" value="16" />
+          <line>382</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -193,6 +191,9 @@
         <watch expression="carsHashMap" />
         <watch expression="table[11]" />
         <watch expression="table[11]" language="JAVA" />
+        <watch expression="ids" language="JAVA" />
+        <watch expression="ids.length" language="JAVA" />
+        <watch expression="map" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
