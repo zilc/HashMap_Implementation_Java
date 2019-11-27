@@ -1,7 +1,7 @@
 package edu.ktu.ds.lab3.gui;
 
-import edu.ktu.ds.lab3.demo.Car;
-import edu.ktu.ds.lab3.demo.CarsGenerator;
+import edu.ktu.ds.lab3.cepkauskas.Capacitor;
+import edu.ktu.ds.lab3.cepkauskas.CapacitorGenerator;
 import edu.ktu.ds.lab3.demo.SimpleBenchmark;
 import edu.ktu.ds.lab3.utils.HashType;
 import edu.ktu.ds.lab3.utils.ParsableHashMap;
@@ -80,11 +80,11 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
     private MainWindowMenu mainWindowMenu;
     private final Stage stage;
 
-    private ParsableMap<String, Car> map;
+    private ParsableMap<String, Capacitor> map;
     private int sizeOfInitialSubSet, sizeOfGenSet, colWidth, initialCapacity;
     private float loadFactor;
     private HashType ht = HashType.DIVISION;
-    private final CarsGenerator carsGenerator = new CarsGenerator();
+    private final CapacitorGenerator capacitorGenerator = new CapacitorGenerator();
 
     public MainWindowCapacitor(Stage stage) {
         this.stage = stage;
@@ -310,10 +310,10 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
         createMap();
         // Jei failas nenurodytas - generuojami automobiliai ir talpinami atvaizdyje
         if (filePath == null) {
-            Car[] carsArray = carsGenerator.generateShuffleCarsAndIds(sizeOfGenSet, sizeOfInitialSubSet);
-            for (Car c : carsArray) {
+            Capacitor[] carsArray = capacitorGenerator.generateShuffle(sizeOfGenSet, sizeOfInitialSubSet);
+            for (Capacitor c : carsArray) {
                 map.put(
-                        carsGenerator.getCarId(), //raktas
+                        capacitorGenerator(), //raktas
                         c);
             }
             KsGui.ounArgs(taEvents, MESSAGES.getString("mapPuts"), map.size());
@@ -338,9 +338,9 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
     }
 
     private void mapPut() {
-        Car car = carsGenerator.getCar();
+        Car car = capacitorGenerator.getCar();
         map.put(
-                carsGenerator.getCarId(), // Raktas
+                capacitorGenerator.getCarId(), // Raktas
                 car);
         table.formTable(map.getMaxChainSize() * 2 + 1, colWidth);
         String[][] modelList = map.getModelList(paneParam1.getTfOfTable().get(5).getText());

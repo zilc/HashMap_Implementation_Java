@@ -5,79 +5,66 @@ import edu.ktu.ds.lab3.gui.ValidationException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 public class CapacitorGenerator {
 
-        private int startIndex = 0, lastIndex = 0;
-        private boolean isStart = true;
+    private static final String ID_CODE = "ID";      //  ***** Nauja
+    private static int serNr = 10000;               //  ***** Nauja
 
-        private Capacitor[] capacitors;
+    private Capacitor[] capacitors;
+    private String[] keys;
 
-        public Capacitor[] generateShuffle(int setSize,
-                                           double shuffleCoef) throws ValidationException {
+    private int currCapacitorIndex = 0, currCapacitorIdIndex = 0;
 
-            return generateShuffle(setSize, setSize, shuffleCoef);
+    public static Capacitor[] generateShuffleCapacitors(int size) {
+        Capacitor[] cars = IntStream.range(0, size)
+                .mapToObj(i -> new Capacitor.Builder().buildRandom())
+                .toArray(Capacitor[]::new);
+        Collections.shuffle(Arrays.asList(cars));
+        return cars;
+    }
+
+    public static String[] generateShuffleIds(int size) {
+        String[] keys = IntStream.range(0, size)
+                .mapToObj(i -> ID_CODE + (serNr++))
+                .toArray(String[]::new);
+        Collections.shuffle(Arrays.asList(keys));
+        return keys;
+    }
+
+    public Capacitor[] generateShuffleCapacitorsAndIds(int setSize,
+                                                       int setTakeSize) throws ValidationException {
+
+        if (setTakeSize > setSize) {
+            setTakeSize = setSize;
         }
+        capacitors = generateShuffleCapacitors(setSize);
+        keys = generateShuffleIds(setSize);
+        this.currCapacitorIndex = setTakeSize;
+        return Arrays.copyOf(capacitors, setTakeSize);
+    }
 
-        /**
-         * @param setSize
-         * @param setTake
-         * @param shuffleCoef
-         * @return Gražinamas aibesImtis ilgio masyvas
-         * @throws ValidationException
-         */
-        public Capacitor[] generateShuffle(int setSize,
-                                           int setTake,
-                                           double shuffleCoef) throws ValidationException {
-
-            Capacitor[] capacitors = IntStream.range(0, setSize)
-                    .mapToObj(i -> new Capacitor.Builder().buildRandom())
-                    .toArray(Capacitor[]::new);
-            return shuffle(capacitors, setTake, shuffleCoef);
+    // Imamas po vienas elementas iš sugeneruoto masyvo. Kai elementai baigiasi sugeneruojama
+    // nuosava situacija ir išmetamas pranešimas.
+    public Capacitor getCapacitor() {
+        if (capacitors == null) {
+            throw new ValidationException("capacitorsNotGenerated");
         }
-
-        public Capacitor takeCapacitor() throws ValidationException {
-            if (lastIndex < startIndex) {
-                throw new ValidationException(String.valueOf(lastIndex - startIndex), "ERORR");
-            }
-            // Vieną kartą Automobilis imamas iš masyvo pradžios, kitą kartą - iš galo.
-            isStart = !isStart;
-            return capacitors[isStart ? startIndex++ : lastIndex--];
-        }
-
-        private Capacitor[] shuffle(Capacitor[] capacitors, int amountToReturn, double shuffleCoef) throws ValidationException {
-            if (capacitors == null) {
-                throw new IllegalArgumentException("Kondensatorių nėra (null)");
-            }
-            if (amountToReturn <= 0) {
-                throw new ValidationException(String.valueOf(amountToReturn),  "ERORR");
-            }
-            if (capacitors.length < amountToReturn) {
-                throw new ValidationException(capacitors.length + " >= " + amountToReturn,  "ERORR" );
-            }
-            if ((shuffleCoef < 0) || (shuffleCoef > 1)) {
-                throw new ValidationException(String.valueOf(shuffleCoef),  "ERORR" );
-            }
-
-            int amountToLeave = capacitors.length - amountToReturn;
-            int startIndex = (int) (amountToLeave * shuffleCoef / 2);
-
-            Capacitor[] takeToReturn = Arrays.copyOfRange(capacitors, startIndex, startIndex + amountToReturn);
-            Capacitor[] takeToLeave = Stream
-                    .concat(Arrays.stream(Arrays.copyOfRange(capacitors, 0, startIndex)),
-                            Arrays.stream(Arrays.copyOfRange(capacitors, startIndex + amountToReturn, capacitors.length)))
-                    .toArray(Capacitor[]::new);
-
-            Collections.shuffle(Arrays.asList(takeToReturn)
-                    .subList(0, (int) (takeToReturn.length * shuffleCoef)));
-            Collections.shuffle(Arrays.asList(takeToLeave)
-                    .subList(0, (int) (takeToLeave.length * shuffleCoef)));
-
-            this.startIndex = 0;
-            this.lastIndex = takeToLeave.length - 1;
-            this.capacitors = takeToLeave;
-            return takeToReturn;
+        if (currCapacitorIndex < capacitors.length) {
+            return capacitors[currCapacitorIndex++];
+        } else {
+            throw new ValidationException("allSetStoredToMap");
         }
     }
 
+    public String getCapacitorId() {
+        if (keys == null) {
+            throw new ValidationException("capacitorsIdsNotGenerated");
+        }
+        if (currCapacitorIdIndex < keys.length) {
+            return keys[currCapacitorIdIndex++];
+        } else {
+            throw new ValidationException("allKeysStoredToMap");
+        }
+    }
+}

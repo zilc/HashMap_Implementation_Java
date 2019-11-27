@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d68a1a71-9310-48e1-96af-a08bd2f2a776" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/cepkauskas/Capacitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/cepkauskas/Capacitor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui/MainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/cepkauskas/CapacitorGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/cepkauskas/CapacitorGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui/MainWindowCapacitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui/MainWindowCapacitor.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -70,12 +71,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ManualTest (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.ktu.ds.lab3.cepkauskas.ManualTest" />
+    <configuration name="ManualTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.ktu.ds.lab3.demo.ManualTest" />
       <module name="Lab3_MaisosLenteles_Intellij" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.ktu.ds.lab3.cepkauskas.*" />
+          <option name="PATTERN" value="edu.ktu.ds.lab3.demo.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -84,11 +85,11 @@
       </method>
     </configuration>
     <configuration name="ManualTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="edu.ktu.ds.lab3.demo.ManualTest" />
+      <option name="MAIN_CLASS_NAME" value="edu.ktu.ds.lab3.cepkauskas.ManualTest" />
       <module name="Lab3_MaisosLenteles_Intellij" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="edu.ktu.ds.lab3.demo.*" />
+          <option name="PATTERN" value="edu.ktu.ds.lab3.cepkauskas.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
