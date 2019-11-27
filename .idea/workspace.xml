@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d68a1a71-9310-48e1-96af-a08bd2f2a776" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/cepkauskas/DemoExecutionCapacitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/gui/MainWindowCapacitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/gui/MainWindowCapacitor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/cepkauskas/Capacitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/cepkauskas/Capacitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/cepkauskas/CapacitorGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/cepkauskas/CapacitorGenerator.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -54,13 +57,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.DemoExecution">
+  <component name="RunManager" selected="Application.DemoExecutionCapacitor">
     <configuration name="DemoExecution" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="edu.ktu.ds.lab3.demo.DemoExecution" />
       <module name="Lab3_MaisosLenteles_Intellij" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="edu.ktu.ds.lab3.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DemoExecutionCapacitor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="edu.ktu.ds.lab3.cepkauskas.DemoExecutionCapacitor" />
+      <module name="Lab3_MaisosLenteles_Intellij" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="edu.ktu.ds.lab3.cepkauskas.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -109,6 +125,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.DemoExecutionCapacitor" />
         <item itemvalue="Application.DemoExecution" />
         <item itemvalue="Application.ManualTest (1)" />
         <item itemvalue="Application.SimpleBenchmark" />

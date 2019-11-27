@@ -17,11 +17,11 @@ public class CapacitorGenerator {
     private int currCapacitorIndex = 0, currCapacitorIdIndex = 0;
 
     public static Capacitor[] generateShuffleCapacitors(int size) {
-        Capacitor[] cars = IntStream.range(0, size)
+        Capacitor[] capacitors = IntStream.range(0, size)
                 .mapToObj(i -> new Capacitor.Builder().buildRandom())
                 .toArray(Capacitor[]::new);
-        Collections.shuffle(Arrays.asList(cars));
-        return cars;
+        Collections.shuffle(Arrays.asList(capacitors));
+        return capacitors;
     }
 
     public static String[] generateShuffleIds(int size) {

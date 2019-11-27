@@ -154,9 +154,9 @@ public class Capacitor implements Parsable<Capacitor> {
 
     @Override
     public String toString() {  // surenkama visa reikalinga informacija
-        return String.format("Talpa: %8.1f uF, Temp: %8.1f C, Tipas: %-4s "
+        return String.format("Talpa: %8d uF, Temp: %8d C, Tipas: %-4s "
                         + "Įtampa: "
-                        + "%7.1f V Kaina: %8.2f%s eur",
+                        + "%7d V Kaina: %8.2f%s eur",
                 capacity, temperature, type, voltage, price, validate());
     }
 
@@ -238,7 +238,7 @@ public class Capacitor implements Parsable<Capacitor> {
     // Car klases objektų gamintojas (builder'is)
     public static class Builder {
 
-        private final static Random RANDOM = new Random(1949);  // Atsitiktinių generatorius
+        private final static Random RANDOM = new Random(1);  // Atsitiktinių generatorius
         private final static String[] MODELS = {"Keramikinis", "Plėvelinis","Elektrolitinis"};
 
 
@@ -256,7 +256,7 @@ public class Capacitor implements Parsable<Capacitor> {
         public Capacitor buildRandom() {
             int ma = RANDOM.nextInt(MODELS.length);
 
-            return new Capacitor(2 + RANDOM.nextInt(), 6 + RANDOM.nextInt(80),MODELS[ma],
+            return new Capacitor(2 + RANDOM.nextInt(200), 6 + RANDOM.nextInt(80),MODELS[ma],
                     3 + RANDOM.nextInt(20),
                     0.5 + RANDOM.nextDouble());
 
