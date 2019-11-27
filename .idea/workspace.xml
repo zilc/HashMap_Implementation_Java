@@ -6,7 +6,6 @@
       <change beforePath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/gui/MainWindowCapacitor$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/gui/MainWindowCapacitor$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/gui/MainWindowCapacitor$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/gui/MainWindowCapacitor$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/gui/MainWindowCapacitor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab3_MaisosLenteles_Intellij/edu/ktu/ds/lab3/gui/MainWindowCapacitor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/cepkauskas/DemoExecutionCapacitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/cepkauskas/DemoExecutionCapacitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui/MainWindowCapacitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui/MainWindowCapacitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui/messagesCapacitor.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui/messagesCapacitor.properties" afterDir="false" />
     </list>
@@ -182,13 +181,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui/MainWindowCapacitor.java</url>
-          <line>301</line>
+          <line>302</line>
           <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/edu/ktu/ds/lab3/gui/MainWindowCapacitor.java</url>
-          <line>346</line>
-          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

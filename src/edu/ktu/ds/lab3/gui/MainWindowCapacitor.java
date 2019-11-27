@@ -25,10 +25,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.File;
-import java.util.List;
-import java.util.Locale;
-import java.util.Random;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.SynchronousQueue;
@@ -84,6 +81,7 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
 
     private ParsableMap<String, Capacitor> map;
     Capacitor[] capacitors;
+    String[] ids;
     private int sizeOfInitialSubSet, sizeOfGenSet, colWidth, initialCapacity;
     private float loadFactor;
     private HashType ht = HashType.DIVISION;
@@ -116,10 +114,13 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
         // Formuojamas mygtukų tinklelis (pilkas). Naudojama klasė Panels.
         paneButtons = new Panels(
                 new String[]{
+
                     MESSAGES.getString("button1"),
                     MESSAGES.getString("button2"),
                     MESSAGES.getString("button3"),
-                    MESSAGES.getString("button4")}, 1, 4);
+                    MESSAGES.getString("button4"),
+                        MESSAGES.getString("button5")
+                }, 1, 20);
         paneButtons.getButtons().forEach((btn) -> btn.setOnAction(this));
         IntStream.of(1, 3).forEach(p -> paneButtons.getButtons().get(p).setDisable(true));
 
@@ -132,8 +133,8 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
                 cmbCollisionTypes,
                 new Label(MESSAGES.getString("border2")),
                 cmbHashFunctions,
-                new Label(MESSAGES.getString("border3")),
-                taInput,
+                //new Label(MESSAGES.getString("border3")),
+                //taInput,
                 paneButtons
         ).forEach(n -> paneRight.addColumn(0, n));
         paneRight.setHgap(SPACING);
@@ -303,7 +304,7 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
             mapContainsValue();
         }
         else if (source.equals(paneButtons.getButtons().get(4))) {
-
+            mapPutIfAbsent();
         }
     }
 
@@ -317,10 +318,14 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
         // Jei failas nenurodytas - generuojami automobiliai ir talpinami atvaizdyje
         if (filePath == null) {
              capacitors = capacitorGenerator.generateShuffleCapacitorsAndIds(sizeOfGenSet, sizeOfInitialSubSet);
+             ids = new String[sizeOfGenSet];
             for (Capacitor c : capacitors) {
+                ///String id = capacitorGenerator.getCapacitorId();
+
                 map.put(
                         capacitorGenerator.getCapacitorId(), //raktas
                         c);
+                //Arrays.asList(ids).add(id);
             }
             KsGui.ounArgs(taEvents, MESSAGES.getString("mapPuts"), map.size());
         } else { // Jei failas nurodytas skaitoma iš failo
@@ -349,6 +354,16 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
 
         KsGui.oun(taEvents, capacitor, "ContainsValue()" + ((HashMap)map).containsValue(capacitor));
         KsGui.oun(taEvents, capacitor1, "ContainsValue()" + ((HashMap)map).containsValue(capacitor1));
+    }
+
+    private void mapPutIfAbsent(){
+
+        Capacitor capacitor = capacitors[new Random().nextInt(capacitors.length)];
+        Capacitor capacitor1 = new Capacitor.Builder().buildRandom();
+
+
+        KsGui.oun(taEvents, capacitor, "PutIfAbsent()" + ((HashMap)map).putIfAbsent(ids[new Random().nextInt(ids.length)], capacitor));
+        KsGui.oun(taEvents, capacitor1, "PutIfAbsent()" + ((HashMap)map).putIfAbsent(ids[new Random().nextInt(ids.length)], capacitor1));
     }
 
     private void mapPut() {
@@ -387,7 +402,7 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
             }
 
             semaphore.release();
-            paneRight.setDisable(false);
+           paneRight.setDisable(false);
             mainWindowMenu.setDisable(false);
         }, "Greitaveikos_rezultatu_gija").start();
 
