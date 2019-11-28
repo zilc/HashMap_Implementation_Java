@@ -17,7 +17,7 @@ import javafx.scene.input.KeyCombination;
  */
 public abstract class MainWindowMenu extends MenuBar implements EventHandler<ActionEvent> {
 
-    private static final ResourceBundle MESSAGES = ResourceBundle.getBundle("edu.ktu.ds.lab3.gui.messages");
+    private static final ResourceBundle MESSAGES = ResourceBundle.getBundle("messagesCapacitor");
 
     public MainWindowMenu() {
         initComponents();

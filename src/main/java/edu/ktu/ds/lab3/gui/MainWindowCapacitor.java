@@ -60,7 +60,7 @@ import java.util.stream.Stream;
  */
 public class MainWindowCapacitor extends BorderPane implements EventHandler<ActionEvent> {
 
-    private static final ResourceBundle MESSAGES = ResourceBundle.getBundle("edu.ktu.ds.lab3.gui.messagesCapacitor");
+    private static final ResourceBundle MESSAGES = ResourceBundle.getBundle("messagesCapacitor");
     private static final int TF_WIDTH = 200;
     private static final int TF_WIDTH_SMALLER = 80;
     private static final double SPACING = 5.0;
