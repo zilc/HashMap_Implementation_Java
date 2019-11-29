@@ -113,6 +113,10 @@ public class HashMap<K, V> implements EvaluableMap<K, V> {
      */
      public V putIfAbsent(K key, V value){
 
+         if(key == null || value == null){
+             return null;
+         }
+         
          V val = get(key);
 
          if(val == null){
