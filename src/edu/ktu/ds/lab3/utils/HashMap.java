@@ -116,7 +116,7 @@ public class HashMap<K, V> implements EvaluableMap<K, V> {
          if(key == null || value == null){
              return null;
          }
-         
+
          V val = get(key);
 
          if(val == null){

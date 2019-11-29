@@ -120,10 +120,11 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
                     MESSAGES.getString("button3"),
                     MESSAGES.getString("button4"),
                         MESSAGES.getString("button5"),
-                        MESSAGES.getString("button6")
+                        MESSAGES.getString("button6"),
+                        "Clear"
                 }, 1, 20);
         paneButtons.getButtons().forEach((btn) -> btn.setOnAction(this));
-        IntStream.of(1, 3).forEach(p -> paneButtons.getButtons().get(p).setDisable(true));
+        IntStream.of(1, 3,4,5).forEach(p -> paneButtons.getButtons().get(p).setDisable(true));
 
         // Viskas sudedama į mėlynos spalvos skydelį 
         GridPane.setVgrow(taInput, Priority.ALWAYS);
@@ -281,7 +282,7 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
                 if (source instanceof Button) {
                     handleButtons(source);
                 } else if (source instanceof ComboBox && (source.equals(cmbCollisionTypes) || source.equals(cmbHashFunctions))) {
-                    IntStream.of(1, 3).forEach(p -> paneButtons.getButtons().get(p).setDisable(true));
+                    IntStream.of(1, 3,4,5).forEach(p -> paneButtons.getButtons().get(p).setDisable(true));
                 }
             } catch (ValidationException e) {
                 KsGui.ounerr(taEvents, MESSAGES.getString(e.getMessage()), e.getValue());
@@ -310,15 +311,29 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
         else if (source.equals(paneButtons.getButtons().get(5))) {
             mapNumOfEmpties();
         }
+        else if (source.equals(paneButtons.getButtons().get(6))) {
+            clear();
+        }
+
     }
 
+    private void clear(){
+
+        map.clear();
+        capacitors = null;
+        ids = null;
+        table.getItems().clear();
+        taEvents.clear();
+        KsGui.resetLineNr();
+
+    }
     private void mapNumOfEmpties(){
         KsGui.oun(taEvents, ((HashMap)map).numberOfEmpties(), "Number of empty elements" );
 
     }
     private void mapGeneration(String filePath) {
         // Išjungiami 2 ir 4 mygtukai
-        IntStream.of(1, 3).forEach(p -> paneButtons.getButtons().get(p).setDisable(true));
+        IntStream.of(1, 3,4,5).forEach(p -> paneButtons.getButtons().get(p).setDisable(true));
         // Duomenų nuskaitymas iš parametrų lentelės (žalios)
         readMapParameters();
         // Sukuriamas tuščias atvaizdis priklausomai nuo kolizijų tipo
@@ -332,10 +347,7 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
                 String id = capacitorGenerator.getCapacitorId();
                 ids[i++] = id;
 
-                map.put(
-                        id,
-                        //capacitorGenerator.getCapacitorId(), //raktas
-                        c);
+                map.put(id,c);
 
             }
             KsGui.ounArgs(taEvents, MESSAGES.getString("mapPuts"), map.size());
@@ -356,7 +368,7 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
         // Atnaujinamai maišos lentelės parametrai (geltona lentelė)
         updateHashtableParameters(false);
         // Įjungiami 2 ir 4 mygtukai
-        IntStream.of(1, 3).forEach(p -> paneButtons.getButtons().get(p).setDisable(false));
+        IntStream.of(1, 3,4,5).forEach(p -> paneButtons.getButtons().get(p).setDisable(false));
     }
 
     private void mapContainsValue(){

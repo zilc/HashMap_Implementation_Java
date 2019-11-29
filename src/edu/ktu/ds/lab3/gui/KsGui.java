@@ -18,6 +18,9 @@ public class KsGui {
 
     private static int lineNr;
     private static boolean formatStartOfLine = true;
+    protected static void resetLineNr(){
+        lineNr = 0;
+    }
 
     public static void setFormatStartOfLine(boolean formatStartOfLine) {
         KsGui.formatStartOfLine = formatStartOfLine;
