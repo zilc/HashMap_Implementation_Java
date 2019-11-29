@@ -2,6 +2,7 @@ package edu.ktu.ds.lab3.gui;
 
 import edu.ktu.ds.lab3.cepkauskas.Capacitor;
 import edu.ktu.ds.lab3.cepkauskas.CapacitorGenerator;
+import edu.ktu.ds.lab3.cepkauskas.HashMapOa;
 import edu.ktu.ds.lab3.demo.SimpleBenchmark;
 import edu.ktu.ds.lab3.utils.HashMap;
 import edu.ktu.ds.lab3.utils.HashType;
@@ -98,9 +99,11 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
         // Užpildomi ComboBox'ai
         cmbCollisionTypes.setItems(FXCollections.observableArrayList(
                 MESSAGES.getString("cmbCollisionType1"),
-                MESSAGES.getString("cmbCollisionType2"),
-                MESSAGES.getString("cmbCollisionType3"),
-                MESSAGES.getString("cmbCollisionType4")));
+                MESSAGES.getString("cmbCollisionType2")
+
+                //MESSAGES.getString("cmbCollisionType3"),
+                //MESSAGES.getString("cmbCollisionType4")
+        ));
         cmbCollisionTypes.setOnAction(this);
         cmbCollisionTypes.getSelectionModel().select(0);
         cmbHashFunctions.setItems(FXCollections.observableArrayList(
@@ -483,8 +486,8 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
             case 0:
                 map = new ParsableHashMap<>(String::new, Capacitor::new, initialCapacity, loadFactor, ht);
                 break;
-            // ...
-            // Programuojant kitus kolizijų sprendimo metodus reikia papildyti switch sakinį
+            case 1:
+                //map = new HashMapOa(initialCapacity,loadFactor,ht);
             default:
                 IntStream.of(1, 3).forEach(p -> paneButtons.getButtons().get(p).setDisable(true));
                 throw new ValidationException("notImplemented");

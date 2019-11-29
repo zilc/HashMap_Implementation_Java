@@ -2,6 +2,7 @@ package edu.ktu.ds.lab3.cepkauskas;
 
 
 import edu.ktu.ds.lab3.utils.HashType;
+import edu.ktu.ds.lab3.utils.Map;
 
 import java.util.Arrays;
 
@@ -101,12 +102,12 @@ public class HashMapOa<K, V> implements Map<K,V> {
      * @return Grąžinamas porų masyvas.
      */
     @Override
-    public String[] toArray() {
-        String[] result = new String[table.length];
+    public String[][] toArray() {
+        String[][] result = new String[table.length][];
         int count = 0;
         for (Entry<K,V> n : table) {
             if(n != null){
-                result[count++] = n.toString();
+                result[count++] = new String[]{n.key.toString(), n.value.toString()};
             }
 
         }
