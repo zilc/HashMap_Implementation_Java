@@ -1,12 +1,14 @@
 package edu.ktu.ds.lab3.cepkauskas;
 
 
+import edu.ktu.ds.lab3.utils.EvaluableMap;
 import edu.ktu.ds.lab3.utils.HashType;
 import edu.ktu.ds.lab3.utils.Map;
+import edu.ktu.ds.lab3.utils.ParsableMap;
 
 import java.util.Arrays;
 
-public class HashMapOa<K, V> implements Map<K,V> {
+public class HashMapOa<K, V> implements EvaluableMap<K,V> {
 
     public static final int DEFAULT_INITIAL_CAPACITY = 16;
     public static final float DEFAULT_LOAD_FACTOR = 0.75f;
@@ -255,6 +257,31 @@ public class HashMapOa<K, V> implements Map<K,V> {
      */
     public boolean contains(K key){
         return get(key) != null;
+    }
+
+    @Override
+    public int getMaxChainSize() {
+        return 0;
+    }
+
+    @Override
+    public int getRehashesCounter() {
+        return 0;
+    }
+
+    @Override
+    public int getTableCapacity() {
+        return 0;
+    }
+
+    @Override
+    public int getLastUpdatedChain() {
+        return 0;
+    }
+
+    @Override
+    public int getChainsCounter() {
+        return 0;
     }
 
     protected class Entry<K,V>{

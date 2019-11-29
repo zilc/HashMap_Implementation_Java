@@ -3,6 +3,7 @@ package edu.ktu.ds.lab3.gui;
 import edu.ktu.ds.lab3.cepkauskas.Capacitor;
 import edu.ktu.ds.lab3.cepkauskas.CapacitorGenerator;
 import edu.ktu.ds.lab3.cepkauskas.HashMapOa;
+import edu.ktu.ds.lab3.cepkauskas.ParsableHashMapOa;
 import edu.ktu.ds.lab3.demo.SimpleBenchmark;
 import edu.ktu.ds.lab3.utils.HashMap;
 import edu.ktu.ds.lab3.utils.HashType;
@@ -197,7 +198,11 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
         table = new MapTable<String[], String>() {
             @Override
             public ObservableValue<String> returnValue(TableColumn.CellDataFeatures<String[], String> p) {
+                if(p.getValue()==null){
+                    return new SimpleStringProperty( "");
+                }
                 int index = Integer.parseInt(p.getTableColumn().getId());
+
                 return new SimpleStringProperty(index < p.getValue().length ? p.getValue()[index] : "");
             }
         };
@@ -363,15 +368,40 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
             }
         }
 
+        switch (cmbCollisionTypes.getSelectionModel().getSelectedIndex()){
+            case  0 :{
+                table.formTable(map.getMaxChainSize() * 2 + 1, colWidth);
+                String[][] modelList = map.getModelList(paneParam1.getTfOfTable().get(5).getText());
+                table.getItems().clear();
+                table.setItems(FXCollections.observableArrayList(modelList));
+                // Atnaujinamai maišos lentelės parametrai (geltona lentelė)
+                updateHashtableParameters(false);
+                // Įjungiami 2 ir 4 mygtukai
+                IntStream.of(1, 3,4,5).forEach(p -> paneButtons.getButtons().get(p).setDisable(false));
+                break;
+
+            }
+            case  1 :{
+                table.formTable(4, colWidth);
+                String[][] modelList = map.getModelList(paneParam1.getTfOfTable().get(5).getText());
+                table.getItems().clear();
+                table.setItems(FXCollections.observableArrayList(modelList));
+                // Atnaujinamai maišos lentelės parametrai (geltona lentelė)
+                updateHashtableParameters(false);
+                // Įjungiami 2 ir 4 mygtukai
+                IntStream.of(1, 3,4,5).forEach(p -> paneButtons.getButtons().get(p).setDisable(false));
+                break;
+
+
+
+
+
+
+            }
+        }
+
         // Atvaizdis rodomas lentelėje
-        table.formTable(map.getMaxChainSize() * 2 + 1, colWidth);
-        String[][] modelList = map.getModelList(paneParam1.getTfOfTable().get(5).getText());
-        table.getItems().clear();
-        table.setItems(FXCollections.observableArrayList(modelList));
-        // Atnaujinamai maišos lentelės parametrai (geltona lentelė)
-        updateHashtableParameters(false);
-        // Įjungiami 2 ir 4 mygtukai
-        IntStream.of(1, 3,4,5).forEach(p -> paneButtons.getButtons().get(p).setDisable(false));
+
     }
 
     private void mapContainsValue(){
@@ -487,10 +517,10 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
                 map = new ParsableHashMap<>(String::new, Capacitor::new, initialCapacity, loadFactor, ht);
                 break;
             case 1:
-                //map = new HashMapOa(initialCapacity,loadFactor,ht);
+                map = new ParsableHashMapOa<>(String::new, Capacitor::new, initialCapacity, loadFactor, ht);
             default:
-                IntStream.of(1, 3).forEach(p -> paneButtons.getButtons().get(p).setDisable(true));
-                throw new ValidationException("notImplemented");
+                IntStream.of(3).forEach(p -> paneButtons.getButtons().get(p).setDisable(true));
+                //throw new ValidationException("notImplemented");
         }
     }
 
