@@ -86,6 +86,9 @@ public class HashMap<K, V> implements EvaluableMap<K, V> {
      */
     public boolean containsValue(Object value){
 
+        if(value == null){
+            return false;
+        }
         for(int i = 0; i < table.length; i++){
             Node node = table[i];
             if(node != null){
