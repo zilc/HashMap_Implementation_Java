@@ -290,7 +290,7 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
                 if (source instanceof Button) {
                     handleButtons(source);
                 } else if (source instanceof ComboBox && (source.equals(cmbCollisionTypes) || source.equals(cmbHashFunctions))) {
-                    IntStream.of(1, 3,4,5).forEach(p -> paneButtons.getButtons().get(p).setDisable(true));
+                    IntStream.of(3,4,5).forEach(p -> paneButtons.getButtons().get(p).setDisable(true));
                 }
             } catch (ValidationException e) {
                 KsGui.ounerr(taEvents, MESSAGES.getString(e.getMessage()), e.getValue());
@@ -340,7 +340,7 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
 
     }
     private void mapGeneration(String filePath) {
-        // Išjungiami 2 ir 4 mygtukai
+
         IntStream.of(1, 3,4,5).forEach(p -> paneButtons.getButtons().get(p).setDisable(true));
         // Duomenų nuskaitymas iš parametrų lentelės (žalios)
         readMapParameters();
@@ -378,6 +378,7 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
                 updateHashtableParameters(false);
                 // Įjungiami 2 ir 4 mygtukai
                 IntStream.of(1, 3,4,5).forEach(p -> paneButtons.getButtons().get(p).setDisable(false));
+
                 break;
 
             }
@@ -388,8 +389,8 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
                 table.setItems(FXCollections.observableArrayList(modelList));
                 // Atnaujinamai maišos lentelės parametrai (geltona lentelė)
                 updateHashtableParameters(false);
-                // Įjungiami 2 ir 4 mygtukai
-                IntStream.of(1, 3,4,5).forEach(p -> paneButtons.getButtons().get(p).setDisable(false));
+
+                IntStream.of(1).forEach(p -> paneButtons.getButtons().get(p).setDisable(false));
                 break;
 
 
@@ -443,7 +444,19 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
         map.put(
                 capacitorGenerator.getCapacitorId(), // Raktas
                 car);
-        table.formTable(map.getMaxChainSize() * 2 + 1, colWidth);
+        switch(cmbCollisionTypes.getSelectionModel().getSelectedIndex()){
+            case 0:{
+                table.formTable(map.getMaxChainSize() * 2 + 1, colWidth);
+                break;
+            }
+
+            case 1:{
+
+                table.formTable(5, colWidth);
+                break;
+            }
+        }
+
         String[][] modelList = map.getModelList(paneParam1.getTfOfTable().get(5).getText());
         table.setItems(FXCollections.observableArrayList(modelList));
         updateHashtableParameters(true);
