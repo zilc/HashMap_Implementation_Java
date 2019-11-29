@@ -1,6 +1,6 @@
 package edu.ktu.ds.lab3.cepkauskas;
 
-import edu.ktu.ds.lab3.demo.Car;
+import edu.ktu.ds.lab3.cepkauskas.Capacitor;
 import edu.ktu.ds.lab3.utils.*;
 
 import java.util.Locale;
@@ -13,97 +13,98 @@ public class ManualTest {
     }
 
     public static void executeTest() {
-        Car c1 = new Car("Renault", "Laguna", 1997, 50000, 1700);
-        Car c2 = new Car("Renault", "Megane", 2001, 20000, 3500);
-        Car c3 = new Car("Toyota", "Corolla", 2001, 20000, 8500.8);
-        Car c4 = new Car("Renault Laguna 2001 115900 7500");
-        Car c5 = new Car.Builder().buildRandom();
-        Car c6 = new Car("Honda   Civic  2007  36400 8500.3");
-        Car c7 = new Car("Renault Laguna 2001 115900 7500");
-        Car rplc = new Car("Mitsubishi Lancer 2011 11500 75000");
-        Car c80 = new Car("Toyota Corolla 2001 20000 8500.1");
-        Car c81 = new Car("Toyota Corolla 2001 20000 8500.1");
+        Capacitor c1 = new Capacitor(80, 50, "Keramikinis", 12, 0.5);
+        Capacitor c2 = new Capacitor(25, 50, "Keramikinis", 12, 0.65);
+        Capacitor c3 = new Capacitor(72, 55, "Keramikinis", 12, 0.53);
+        Capacitor c4 = new Capacitor("1000   65  Elektrolitinis  24 0.3");
+        Capacitor c5 = new Capacitor.Builder().buildRandom();
+        Capacitor c6 = new Capacitor("500   65  Elektrolitinis  12 0.5");
+        Capacitor c7 = new Capacitor("510   50  Plėvelinis  12 0.41");
+        Capacitor rplc = new Capacitor("42   60  Keramikinis 12 0.52");
+        Capacitor c80 = new Capacitor("300   62  Plėvelinis  12 0.6");
+        Capacitor c81 = new Capacitor("125   75  Elektrolitinis  12 0.2");
 
-        Car c8 = new Car.Builder().buildRandom();
-        Car c9 = new Car.Builder().buildRandom();
-        Car c10 = new Car.Builder().buildRandom();
-        Car c11 = new Car.Builder().buildRandom();
-        Car c12= new Car.Builder().buildRandom();
-        Car c13= new Car.Builder().buildRandom();
-        Car c14 = new Car.Builder().buildRandom();
-        Car c15 = new Car.Builder().buildRandom();
-        Car c16 = new Car.Builder().buildRandom();
-        Car c17 = new Car.Builder().buildRandom();
-        Car c18= new Car.Builder().buildRandom();
-        Car c19 = new Car.Builder().buildRandom();
-        Car c20 = new Car.Builder().buildRandom();
-        Car c21 = new Car.Builder().buildRandom();
-        Car c22 = new Car.Builder().buildRandom();
+        Capacitor c8 = new Capacitor.Builder().buildRandom();
+        Capacitor c9 = new Capacitor.Builder().buildRandom();
+        Capacitor c10 = new Capacitor.Builder().buildRandom();
+        Capacitor c11 = new Capacitor.Builder().buildRandom();
+        Capacitor c12= new Capacitor.Builder().buildRandom();
+        Capacitor c13= new Capacitor.Builder().buildRandom();
+        Capacitor c14 = new Capacitor.Builder().buildRandom();
+        Capacitor c15 = new Capacitor.Builder().buildRandom();
+        Capacitor c16 = new Capacitor.Builder().buildRandom();
+        Capacitor c17 = new Capacitor.Builder().buildRandom();
+        Capacitor c18= new Capacitor.Builder().buildRandom();
+        Capacitor c19 = new Capacitor.Builder().buildRandom();
+        Capacitor c20 = new Capacitor.Builder().buildRandom();
+        Capacitor c21 = new Capacitor.Builder().buildRandom();
+        Capacitor c22 = new Capacitor.Builder().buildRandom();
 
         // Raktų masyvas
-        String[] carsIds = {"TA156", "TA102", "TA178", "TA171", "TA105", "TA106", "TA107", "TA108"};
-        String[] carsIds1 = {"TA156", "TA102", "TA178", "TA178", "TA105", "TA106", "TA107", "TA108","TA111", "TA222"
-                ,"TA333","TA359","TA100","TA908","TA198"};
 
-        String[] carsIds2 = {"TA156", "TA156", "TA178", "TA178", "TA105", "TA105", "TA107", "TA107","TA111", "TA111"
-                ,"TA333","TA333","TA100","TA100","TA198", "TA198", "TA202", "TA202", "TA203", "TA203", "TA202",
-                "TA207", "TA207"} ;
+        String[] capIds = {"ID156", "ID102", "ID178", "ID171", "ID105", "ID106", "ID107", "ID108"};
+        String[] capIds1 = {"ID156", "ID102", "ID178", "ID178", "ID105", "ID106", "ID107", "ID108","ID111", "ID222"
+                ,"ID333","ID359","ID100","ID908","ID198"};
+
+        String[] capIds2 = {"ID156", "ID156", "ID178", "ID178", "ID105", "ID105", "ID107", "ID107","ID111", "ID111"
+                ,"ID333","ID333","ID100","ID100","ID198", "ID198", "ID202", "ID202", "ID203", "ID203", "ID202",
+                "ID207", "ID207"} ;
         int id = 0;
 
-        HashMapOa<String, Car> carsHashMap = new HashMapOa<>( HashType.DIVISION);
-        ParsableMap<String, Car> carsMap
-                = new ParsableHashMap<>(String::new, Car::new, HashType.DIVISION);
+        HashMapOa<String, Capacitor> capHashMap = new HashMapOa<>( HashType.DIVISION);
+        ParsableMap<String, Capacitor> capMap
+                = new ParsableHashMap<>(String::new, Capacitor::new, HashType.DIVISION);
 
-        ParsableMap<String, Car> carsMap1
-                = new ParsableHashMap<>(String::new, Car::new, HashType.DIVISION);
+        ParsableMap<String, Capacitor> capsMap1
+                = new ParsableHashMap<>(String::new, Capacitor::new, HashType.DIVISION);
 
-        ParsableMap<String, Car> carsMap2
-                = new ParsableHashMap<>(String::new, Car::new, HashType.DIVISION);
+        ParsableMap<String, Capacitor> capsMap2
+                = new ParsableHashMap<>(String::new, Capacitor::new, HashType.DIVISION);
 
 
         // Reikšmių masyvas
-        Car[] cars0 = {c1, c2, c3, c4, c5,c7,c6};
-        for (Car c : cars0) {
-            carsHashMap.put(carsIds[id++], c);
+        Capacitor[] cars0 = {c1, c2, c3, c4, c5,c7,c6};
+        for (Capacitor c : cars0) {
+            capHashMap.put(capIds[id++], c);
         }
-        Ks.oun(carsHashMap);
-        Ks.oun("get" + carsIds[4]);
-        Ks.oun(carsHashMap.get(carsIds[4]));
+        Ks.oun(capHashMap);
+        Ks.oun("get" + capIds[4]);
+        Ks.oun(capHashMap.get(capIds[4]));
         Ks.oun("------------------------------");
         Ks.oun("remove");
-        Ks.oun(carsHashMap.remove(carsIds[4]));
-        Ks.oun(carsHashMap);
+        Ks.oun(capHashMap.remove(capIds[4]));
+        Ks.oun(capHashMap);
 
         Ks.oun("put");
-        carsHashMap.put("TA179999",c80);
-        carsHashMap.put("TA189999",c81);
-        carsHashMap.put("TA103",c2);
-        carsHashMap.put("TA133",c11);
-        carsHashMap.put("TA153",c14);
-        carsHashMap.put("TA253",c12);
-        carsHashMap.put("TA137",c2);
-        carsHashMap.put("TA100",c18);
-        carsHashMap.put("TA117",c7);
-        carsHashMap.put("TA107",c5);
-        carsHashMap.put("TA123",c6);
+        capHashMap.put("ID179999",c80);
+        capHashMap.put("ID189999",c81);
+        capHashMap.put("ID103",c2);
+        capHashMap.put("ID133",c11);
+        capHashMap.put("ID153",c14);
+        capHashMap.put("ID253",c12);
+        capHashMap.put("ID137",c2);
+        capHashMap.put("ID100",c18);
+        capHashMap.put("ID117",c7);
+        capHashMap.put("ID107",c5);
+        capHashMap.put("ID123",c6);
 
 
 
 
-        Ks.oun(carsHashMap);
+        Ks.oun(capHashMap);
         Ks.oun("get");
-        Ks.oun(carsHashMap.get("TA171"));
+        Ks.oun(capHashMap.get("ID171"));
 
 
 
 
         id = 0;
 
-        Car[] cars = {c1, c2, c3, c4, c5,c7,c6};
-        for (Car c : cars) {
-            carsMap.put(carsIds[id++], c);
+        Capacitor[] capacitors = {c1, c2, c3, c4, c5,c7,c6};
+        for (Capacitor c : capacitors) {
+            capMap.put(capIds[id++], c);
         }
-        Ks.oun(carsMap);
+        Ks.oun(capMap);
         Ks.oun("get");
 
 
@@ -111,60 +112,60 @@ public class ManualTest {
 
         id = 0;
 
-        Car[] cars1 = {c8, c9, c10, c11, c12,c13,c14, c15, c16, c17, c18, c19,c20,c21,c22};
-        for (Car c : cars1) {
-            carsMap1.put(carsIds1[id++], c);
+        Capacitor[] capacitors1 = {c8, c9, c10, c11, c12,c13,c14, c15, c16, c17, c18, c19,c20,c21,c22};
+        for (Capacitor c : capacitors1) {
+            capsMap1.put(capIds1[id++], c);
         }
         id = 0;
 
-        Car[] cars2 = {c1, c2, c3, c4, c5,c7,c6,c8, c9, c10, c11, c12,c13,c14, c15, c16, c17, c18, c19,c20,c21,c22};
-        for (Car c : cars2) {
-            carsMap2.put(carsIds2[id++], c);
+        Capacitor[] capacitors2 = {c1, c2, c3, c4, c5,c7,c6,c8, c9, c10, c11, c12,c13,c14, c15, c16, c17, c18, c19,c20,c21,c22};
+        for (Capacitor c : capacitors2) {
+            capsMap2.put(capIds2[id++], c);
         }
         id = 0;
 
 
-        Ks.ounn(carsMap);
-        Ks.oun("average chain size" +((HashMap)carsMap).averageChainSize());
-        Ks.ounn(carsMap1);
+        Ks.ounn(capMap);
+        Ks.oun("average chain size" +((HashMap)capMap).averageChainSize());
+        Ks.ounn(capsMap1);
 
-        Ks.oun("average chain size" +((HashMap)carsMap1).averageChainSize());
+        Ks.oun("average chain size" +((HashMap)capsMap1).averageChainSize());
 
-        Ks.ounn(carsMap2);
+        Ks.ounn(capsMap2);
 
-        Ks.oun("average chain size" +((HashMap)carsMap2).averageChainSize());
+        Ks.oun("average chain size" +((HashMap)capsMap2).averageChainSize());
 
 
-        Ks.ounn(carsMap);
-        Ks.oun("Replace: " + ((HashMap)carsMap).get(carsIds[0])+ "with: " + rplc);
-        ((HashMap)carsMap).replace(carsIds[0], ((HashMap)carsMap).get(carsIds[0]),rplc);
-        Ks.ounn(carsMap);
+        Ks.ounn(capMap);
+        Ks.oun("Replace: " + ((HashMap)capMap).get(capIds[0])+ "with: " + rplc);
+        ((HashMap)capMap).replace(capIds[0], ((HashMap)capMap).get(capIds[0]),rplc);
+        Ks.ounn(capMap);
         Ks.ounn("XXXXXXXXXXXXX");
-        Ks.ounn(carsMap2);
-        Ks.oun("Replace: " + ((HashMap)carsMap2).get(carsIds2[18])+ "with: " + rplc);
-         ((HashMap)carsMap2).replace(carsIds2[18],((HashMap)carsMap2).get(carsIds2[18]),rplc);
+        Ks.ounn(capsMap2);
+        Ks.oun("Replace: " + ((HashMap)capsMap2).get(capIds2[18])+ "with: " + rplc);
+         ((HashMap)capsMap2).replace(capIds2[18],((HashMap)capsMap2).get(capIds2[18]),rplc);
 
-        Ks.ounn(carsMap2);
+        Ks.ounn(capsMap2);
         Ks.oun("numb of empties");
-        Ks.oun(((HashMap)carsMap).numberOfEmpties());
-        for(int i = 0; i < cars.length; i++){
-            Ks.oun("Contains value" + cars[i]);
-            //     Ks.oun(((HashMap)carsMap).containsValue(cars[i]));
+        Ks.oun(((HashMap)capMap).numberOfEmpties());
+        for(int i = 0; i < capacitors.length; i++){
+            Ks.oun("Contains value" + capacitors[i]);
+            //     Ks.oun(((HashMap)capMap).containsValue(capacitors[i]));
         }
         Ks.oun("Contains value" + c6);
-        //   Ks.oun(((HashMap)carsMap).containsValue(c6));
-        carsMap.println("Porų išsidėstymas atvaizdyje pagal raktus");
+        //   Ks.oun(((HashMap)capMap).containsValue(c6));
+        capMap.println("Porų išsidėstymas atvaizdyje pagal raktus");
         Ks.oun("Ar egzistuoja pora atvaizdyje?");
-        Ks.oun(carsMap.contains(carsIds[6]));
-        Ks.oun(carsMap.contains(carsIds[7]));
+        Ks.oun(capMap.contains(capIds[6]));
+        Ks.oun(capMap.contains(capIds[7]));
         Ks.oun("Pašalinamos poros iš atvaizdžio:");
-        Ks.oun(carsMap.remove(carsIds[1]));
-        Ks.oun(carsMap.remove(carsIds[7]));
-        carsMap.println("Porų išsidėstymas atvaizdyje pagal raktus");
+        Ks.oun(capMap.remove(capIds[1]));
+        Ks.oun(capMap.remove(capIds[7]));
+        capMap.println("Porų išsidėstymas atvaizdyje pagal raktus");
         Ks.oun("Atliekame porų paiešką atvaizdyje:");
-        Ks.oun(carsMap.get(carsIds[2]));
-        Ks.oun(carsMap.get(carsIds[7]));
+        Ks.oun(capMap.get(capIds[2]));
+        Ks.oun(capMap.get(capIds[7]));
         Ks.oun("Išspausdiname atvaizdžio poras String eilute:");
-        Ks.ounn(carsMap);
+        Ks.ounn(capMap);
     }
 }
