@@ -125,7 +125,9 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
                     MESSAGES.getString("button4"),
                         MESSAGES.getString("button5"),
                         MESSAGES.getString("button6"),
-                        "Clear"
+                        "Clear",
+                        "averageChainSize()",
+                        "replace()"
                 }, 1, 20);
         paneButtons.getButtons().forEach((btn) -> btn.setOnAction(this));
         IntStream.of(1, 3,4,5).forEach(p -> paneButtons.getButtons().get(p).setDisable(true));
@@ -322,6 +324,12 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
         else if (source.equals(paneButtons.getButtons().get(6))) {
             clear();
         }
+        else if (source.equals(paneButtons.getButtons().get(7))) {
+           mapAverageChainSize();
+        }
+        else if (source.equals(paneButtons.getButtons().get(8))) {
+            mapReplace();
+        }
 
     }
 
@@ -335,13 +343,43 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
         KsGui.resetLineNr();
 
     }
+    private void mapReplace(){
+
+        Random random = new Random();
+        String id = ids[random.nextInt(ids.length - 1)];
+        String idAbsent = "ID" + random.nextInt(30000);
+        Capacitor capacitor = new Capacitor.Builder().buildRandom();
+        Capacitor capacitorRepl = map.get(id);
+
+
+        KsGui.oun(taEvents,capacitorRepl,"Capacitor to be replaced:");
+        KsGui.oun(taEvents,capacitor,"Capacitor to replace with:");
+
+
+
+       KsGui.oun(taEvents,((HashMap)map).replace(id,map.get(id),capacitor), "replace(); value exists");;
+       KsGui.oun(taEvents,"", "");
+        KsGui.oun(taEvents,idAbsent,"Capacitor ID which is replaced:");
+
+
+        KsGui.oun(taEvents,((HashMap)map).replace(idAbsent,map.get(idAbsent),capacitor), "replace(); value does not exist");
+
+        table.formTable(map.getMaxChainSize() * 2 + 1, colWidth);
+        String[][] modelList = map.getModelList(paneParam1.getTfOfTable().get(5).getText());
+        table.getItems().clear();
+        table.setItems(FXCollections.observableArrayList(modelList));
+        // Atnaujinamai maišos lentelės parametrai (geltona lentelė)
+        updateHashtableParameters(false);
+
+
+    }
     private void mapNumOfEmpties(){
         KsGui.oun(taEvents, ((HashMap)map).numberOfEmpties(), "Number of empty elements" );
 
     }
     private void mapGeneration(String filePath) {
 
-        IntStream.of(1, 3,4,5).forEach(p -> paneButtons.getButtons().get(p).setDisable(true));
+        IntStream.of(1, 3,4,5,6,7,8).forEach(p -> paneButtons.getButtons().get(p).setDisable(true));
         // Duomenų nuskaitymas iš parametrų lentelės (žalios)
         readMapParameters();
         // Sukuriamas tuščias atvaizdis priklausomai nuo kolizijų tipo
@@ -377,7 +415,7 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
                 // Atnaujinamai maišos lentelės parametrai (geltona lentelė)
                 updateHashtableParameters(false);
                 // Įjungiami 2 ir 4 mygtukai
-                IntStream.of(1, 3,4,5).forEach(p -> paneButtons.getButtons().get(p).setDisable(false));
+                IntStream.of(1, 3,4,5,6,7,8).forEach(p -> paneButtons.getButtons().get(p).setDisable(false));
 
                 break;
 
@@ -439,6 +477,9 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
         updateHashtableParameters(false);
     }
 
+    private void mapAverageChainSize(){
+       KsGui.oun(taEvents,((HashMap)(map)).averageChainSize(), "Average chain size:");
+    }
     private void mapPut() {
         Capacitor car = capacitorGenerator.getCapacitor();
         map.put(

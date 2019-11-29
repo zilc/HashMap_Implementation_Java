@@ -1,6 +1,4 @@
 package edu.ktu.ds.lab3.cepkauskas;
-
-import edu.ktu.ds.lab3.cepkauskas.Capacitor;
 import edu.ktu.ds.lab3.utils.*;
 
 import java.util.Locale;
