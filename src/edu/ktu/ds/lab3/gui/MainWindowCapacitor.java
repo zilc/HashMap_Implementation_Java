@@ -382,16 +382,19 @@ public class MainWindowCapacitor extends BorderPane implements EventHandler<Acti
     private void mapPutIfAbsent(){
 
         Capacitor capacitor = capacitors[new Random().nextInt(capacitors.length)];
-        KsGui.oun(taEvents, capacitor, "Put capacitor1");
         Capacitor capacitor1 = new Capacitor.Builder().buildRandom();
+        Capacitor capacitor2 = new Capacitor.Builder().buildRandom();
+        String key = ids[new Random().nextInt(ids.length)];
+        String key2 = "ID" + new Random().nextInt(2000);
 
-
-
-        KsGui.oun(taEvents, "PutIfAbsent()" + ((HashMap)map).putIfAbsent(ids[new Random().nextInt(ids.length)], capacitor));
+        KsGui.oun(taEvents, capacitor1, "Put capacitor1");
+        KsGui.oun(taEvents,key,"Key:");
+        KsGui.oun(taEvents, "PutIfAbsent()" + ((HashMap)map).putIfAbsent(key, capacitor1));
 
         KsGui.oun(taEvents, "--------------------------------------------------");
-        KsGui.oun(taEvents, capacitor1, "Put capacitor2");
-        KsGui.oun(taEvents, "PutIfAbsent()" + ((HashMap)map).putIfAbsent("ID" + new Random().nextInt(2000) , capacitor1));
+        KsGui.oun(taEvents, capacitor2, "Put capacitor2");
+        KsGui.oun(taEvents,key2,"Key2:");
+        KsGui.oun(taEvents, "PutIfAbsent()" + ((HashMap)map).putIfAbsent(key2 , capacitor2));
 
 
         table.formTable(map.getMaxChainSize() * 2 + 1, colWidth);
