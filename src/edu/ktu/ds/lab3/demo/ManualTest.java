@@ -41,9 +41,12 @@ public class ManualTest {
 
         // Raktų masyvas
         String[] carsIds = {"TA156", "TA102", "TA178", "TA171", "TA105", "TA106", "TA107", "TA108"};
-        String[] carsIds1 = {"TA156", "TA102", "TA178", "TA178", "TA105", "TA106", "TA107", "TA108","TA111", "TA222","TA333","TA359","TA100","TA908","TA198"};
+        String[] carsIds1 = {"TA156", "TA102", "TA178", "TA178", "TA105", "TA106", "TA107", "TA108","TA111",
+                "TA222","TA333","TA359","TA100","TA908","TA198"};
 
-        String[] carsIds2 = {"TA156", "TA156", "TA178", "TA178", "TA105", "TA105", "TA107", "TA107","TA111", "TA111","TA333","TA333","TA100","TA100","TA198", "TA198", "TA202", "TA202", "TA203", "TA203", "TA202", "TA207", "TA207"} ;
+        String[] carsIds2 = {"TA156", "TA156", "TA178", "TA178", "TA105", "TA105", "TA107", "TA107","TA111",
+                "TA111","TA333","TA333","TA100","TA100","TA198", "TA198", "TA202", "TA202", "TA203", "TA203",
+                "TA202", "TA207", "TA207"} ;
         int id = 0;
         ParsableMap<String, Car> carsMap
                 = new ParsableHashMap<>(String::new, Car::new, HashType.DIVISION);
