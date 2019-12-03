@@ -148,10 +148,10 @@ public class ManualTest {
         Ks.oun(((HashMap)capMap).numberOfEmpties());
         for(int i = 0; i < capacitors.length; i++){
             Ks.oun("Contains value" + capacitors[i]);
-            //     Ks.oun(((HashMap)capMap).containsValue(capacitors[i]));
+            Ks.oun(((HashMap)capMap).containsValue(capacitors[i]));
         }
         Ks.oun("Contains value" + c6);
-        //   Ks.oun(((HashMap)capMap).containsValue(c6));
+          Ks.oun(((HashMap)capMap).containsValue(c6));
         capMap.println("Porų išsidėstymas atvaizdyje pagal raktus");
         Ks.oun("Ar egzistuoja pora atvaizdyje?");
         Ks.oun(capMap.contains(capIds[6]));

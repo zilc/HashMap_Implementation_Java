@@ -2,9 +2,7 @@ package benchmark;
 
 import edu.ktu.ds.lab3.cepkauskas.Capacitor;
 import edu.ktu.ds.lab3.cepkauskas.CapacitorGenerator;
-import edu.ktu.ds.lab3.cepkauskas.Map;
 import edu.ktu.ds.lab3.utils.HashMap;
-import org.openjdk.jmh.*;
 import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.infra.Blackhole;
 import org.openjdk.jmh.runner.Runner;
