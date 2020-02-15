@@ -1,4 +1,5 @@
 # Laboratorinis darbas Nr.3 - Maišos lentelės duomenų struktūrų tyrimas
+ ## Yra JMH benchmark
 
 ## Darbo tikslai
 
@@ -102,4 +103,4 @@ lentelių kūrimu bei panaudojimu.
     pats žodis).
     
     
-    ## Yra JMH benchmark
+   
