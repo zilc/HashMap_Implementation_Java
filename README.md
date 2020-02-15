@@ -100,3 +100,6 @@ lentelių kūrimu bei panaudojimu.
     poromis ir su faile \<lab3\_projekto\_direktorija\>/data/zodynas.txt
     esančiais žodžiais (tyrimui užtenka, kad raktas ir reikšmė būtų tas
     pats žodis).
+    
+    
+    ## Yra JMH benchmark
